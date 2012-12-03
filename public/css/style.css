@@ -1,0 +1,152 @@
+body {
+  background-color: #333;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  font-weight: 100;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 100;
+}
+#navigation {
+  width: 210px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#navigation header h1 {
+  width: 210px;
+}
+#navigation header h1 img {
+  margin: 0 auto;
+  display: block;
+  -webkit-filter: grayscale(70%) drop-shadow(0px 0px 1px #000000);
+}
+#navigation nav {
+  padding: 12px 0 0 0;
+}
+#navigation nav ul {
+  margin: 0;
+}
+#navigation nav ul li {
+  padding: 6px 0;
+}
+#navigation nav ul li a {
+  font-size: 18px;
+  display: block;
+  text-align: center;
+}
+#navigation #blurb {
+  padding: 6px 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 188px;
+}
+#navigation #blurb .star {
+  color: #d63df5;
+  font-size: 28px;
+  line-height: 0px;
+  display: inline-block;
+}
+#navigation #blurb p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+}
+#content {
+  margin: 0 0 0 230px;
+  padding: 24px 0 0 0;
+}
+#content h2 {
+  color: #993df5;
+  margin: 0 0 0 120px;
+}
+#content #posts ul {
+  margin: 0;
+}
+#content .post {
+  display: block;
+  margin: 0 0 24px 0;
+}
+#content .post .date {
+  float: left;
+  width: 120px;
+}
+#content .post .date span {
+  margin: 60px 0 0 0;
+  display: block;
+  color: #993df5;
+}
+#content .post .content {
+  float: left;
+  width: 400px;
+}
+#content .post .content header {
+  padding: 12px 0;
+}
+#content .post .content header h3 {
+  color: #993df5;
+  display: inline;
+}
+#content .post .content header h4 {
+  display: inline;
+  color: #d63df5;
+}
+#content .post .content article {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+#content #about .q {
+  float: left;
+  width: 120px;
+}
+#content #about .a {
+  float: left;
+  width: 400px;
+}
+#content #about ul li {
+  display: block;
+}
+#content #about ul li .type {
+  display: block;
+  float: left;
+  width: 400px;
+}
+#content #about ul li.how ul {
+  list-style: none;
+}
+#content #about ul li.how li a {
+  float: left;
+  margin: 0 4px 4px 0;
+  padding: 2px 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 12px;
+  background-color: #555;
+}
+#content #about ul li.how li a:hover {
+  text-decoration: none;
+}
+#content #about ul li.how li.t a {
+  background-color: #99f53d;
+}
+#content #about ul li.how li.s a {
+  background-color: #f53d99;
+}
+#content #about ul li.how li.fluent a {
+  font-size: 18px;
+}
+#content #about ul li.how li.great a {
+  font-size: 14px;
+}
+#content #about ul li.how li.good a {
+  font-size: 10px;
+}

@@ -5,9 +5,23 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , posts = require('./routes/posts')
+  , projects = require('./routes/projects')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
+
+// GLOBAL: Database
+mongoose = require('mongoose');
+db = mongoose.createConnection('localhost', 'over9k');
+schemas = require('./config/schemas');
+models = require('./config/models');
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  // yay!
+  console.log('connected to db');
+});
 
 var app = express();
 
@@ -32,6 +46,14 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+
+// POSTS
+app.get('/posts/new', posts.create);
+app.post('/posts/new', posts.create);
+
+// PROJECTS
+app.get('/projects/new', projects.create);
+app.post('/projects/new', projects.create);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

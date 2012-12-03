@@ -1,11 +1,197 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>>9k</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel='stylesheet' href='/css/style.css' />
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <div id="navigation">
+        	<header>
+        		<h1>
+        			<img src="/img/glyph.png" alt="">
+        		</h1>
+        	</header>
+        	<nav>
+        		<ul id="links">
+        			<li><a href="" id="link">Blog</a></li>
+        			<li><a href="" id="link">About</a></li>
+        			<li><a href="" id="link">Projects</a></li>
+        			<li><a href="" id="link">Contact</a></li>
+        		</ul>
+        	</nav>
+        	<div id="blurb">
+        		<p><span class="star">*</span> Overninethousand ltd. is Chris Finch, User Interface Engineer and Frontend Web Developer currently working for the BBC in London UK.</p>
+        	</div>
+        </div>
+        <div id="content">
+			<section id="posts">
+				<ul>
+					<% for (var i=0;i<=posts.length-1;i++) {
+						p = posts[i]; %>
+						<li class="post clearfix">
+							<div class="date">
+								<span><%=p.niceDate() %></span>
+							</div>
+							<div class="content">
+								<header>
+									<h3 class="title"><%=p.title %></h3>
+									<h4>by <%=p.author %></h4>
+								</header>
+								<article>
+									<%-p.niceBody() %>
+								</article>
+							</div>
+						</li>
+					<% } %>
+				</ul>
+			</section>
+
+			<section id="about">
+				<ul>
+					<li class="what clearfix">
+						<div class="q"><span>What?</span></div>
+						<div class="a">
+							<p>Overninethousand ltd. is a web design and development company specialising in frontend and user interface development.</p>
+							<p>Based in the South East uk, and with a variety of clients from the UK and abroad in mainland europe, Overninethousand develops, deploys and maintains small to medium sized web sites and presences for organisations and idividuals as well as taking part in larger projects on a contract basis for User interface development work.</p>
+						</div>
+					</li>
+					<li class="how clearfix">
+						<div class="q"><span>How?</span></div>
+						<div class="a">
+							<div class="type">
+								<span class="title">Markup and browser technology</span>
+								<ul>
+									<li class="t fluent"><a href="">HTML5</a></li>
+									<li class="s fluent"><a href="">Semantic markup</a></li>
+									<li class="s great"><a href="">Accessability</a></li>
+									<li class="t great"><a href="">Video API</a></li>
+									<li class="t great"><a href="">Audio API</a></li>
+									<li class="t good"><a href="">Websockets</a></li>
+									<li class="s fluent"><a href="">Cross Browser Integration</a></li>
+								</ul>
+							</div>
+							<div class="type">
+								<span class="title">Presentation</span>
+								<ul>
+									<li class="t fluent"><a href="">CSS3</a></li>
+									<li class="s fluent"><a href="">CSS pre-processing</a></li>
+									<li class="t fluent"><a href="">LESS</a></li>
+									<li class="t fluent"><a href="">SASS</a></li>
+									<li class="s fluent"><a href="">Progressive Enhancment / Graceful Degredation</a></li>
+									<li class="t great"><a href="">Media Queries</a></li>
+									<li class="t great"><a href="">SVG</a></li>
+								</ul>
+							</div>
+							<div class="type">
+								<span class="title">Client side scripting</span>
+								<ul>
+									<li class="t fluent"><a href="">Vanilla Javascript</a></li>
+									<li class="s fluent"><a href="">AJAX and API Integration</a></li>
+									<li class="t fluent"><a href="">jQuery</a></li>
+									<li class="s fluent"><a href="">mv* paradigm</a></li>
+									<li class="t great"><a href="">Backbone.js</a></li>
+									<li class="t good"><a href="">d3.js</a></li>
+									<li class="s great"><a href="">Mobile Scripting</a></li>
+									<li class="s great"><a href="">Device Targeting</a></li>
+									<li class="t good"><a href="">Raphael.js</a></li>
+									<li class="s fluent"><a href="">Modular design</a></li>
+									<li class="t good"><a href="">Require.js</a></li>
+									<li class="t great"><a href="">Socket.io</a></li>
+									<li class="t great"><a href="">Modernizr.js</a></li>
+								</ul>
+							</div>
+							<div class="type">
+								<span class="title">Server side technologies</span>
+								<ul>
+									<li class="t great"><a href="">node.js</a></li>
+									<li class="t great"><a href="">Express.js</a></li>
+									<li class="t great"><a href="">Socket.io</a></li>
+									<li class="t fluent"><a href="">ejs</a></li>
+									<li class="t great"><a href="">jade</a></li>
+									<li class="t good"><a href="">Ruby + Rails</a></li>
+									<li class="t good"><a href="">Sinatra</a></li>
+									<li class="t great"><a href="">Compass</a></li>
+									<li class="t great"><a href="">HAML</a></li>
+									<li class="t good"><a href="">PHP</a></li>
+									<li class="s fluent"><a href="">Content management systems</a></li>
+									<li class="s fluent"><a href="">Templating</a></li>
+									<li class="t fluent"><a href="">Wordpress</a></li>
+									<li class="t fluent"><a href="">Liquid</a></li>
+									<li class="t fluent"><a href="">erb</a></li>
+									<li class="t good"><a href="">Expression Engine</a></li>
+								</ul>
+							</div>
+							<div class="type key">
+								<span class="title">* Key</span>
+								<ul>
+									<li class="t"><a href="">Technology</a></li>
+									<li class="s"><a href="">Technique</a></li>
+									<li class="fluent"><a href="">Fluent</a></li>
+									<li class="great"><a href="">Great</a></li>
+									<li class="good"><a href="">Good</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="q"><span></span></div>
+						<div class="a"></div>
+					</li>
+					<li>
+						<div class="q"><span></span></div>
+						<div class="a"></div>
+					</li>
+				</ul>
+			</section>
+
+<!-- 			<div id="projects">
+				<ul>
+					<% for (var i=0;i<projects.length-1;i++) {
+						p = projects[i]; %>
+						<li><%=p.title %></li>
+					<% } %>
+				</ul>
+			</div> -->
+        </div>
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+        -->
+    </body>
 </html>

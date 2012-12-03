@@ -4,5 +4,16 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	var posts;
+	var projects;
+
+	models.post.find(function (err, data) {
+		posts = data;
+
+		models.project.find(function (err, data) {
+			projects = data;
+			res.render('index', { posts: posts, projects: projects });
+		});
+	});
+
 };
