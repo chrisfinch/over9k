@@ -62,10 +62,6 @@ h6 {
   margin: 0 0 0 230px;
   padding: 24px 0 0 0;
 }
-#content h2 {
-  color: #993df5;
-  margin: 0 0 0 120px;
-}
 #content #posts ul {
   margin: 0;
 }
@@ -105,9 +101,16 @@ h6 {
   float: left;
   width: 120px;
 }
+#content #about .q span {
+  display: block;
+  color: #993df5;
+}
 #content #about .a {
   float: left;
   width: 400px;
+}
+#content #about ul {
+  margin: 0;
 }
 #content #about ul li {
   display: block;
@@ -116,6 +119,9 @@ h6 {
   display: block;
   float: left;
   width: 400px;
+}
+#content #about ul li .type .title {
+  color: #993df5;
 }
 #content #about ul li.how ul {
   list-style: none;

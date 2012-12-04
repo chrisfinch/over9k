@@ -113,28 +113,28 @@ h1, h2, h3, h4, h5, h6 {
 #content {
 	margin: 0 0 0 230px;
 	padding: 24px 0 0 0;
-	h2 {
-		//font-family: 'Lobster', cursive;
-		color:hsl( 270, 90%, 60% );
-		margin: 0 0 0 120px;
-				// text-shadow: 1px 1px 1px hsl(  30, 90%, 60% ),
-				// 	2px 2px 1px hsl(  50, 90%, 60% ),
-				// 	3px 3px 1px hsl(  70, 90%, 60% ),
-				// 	4px 4px 1px hsl(  90, 90%, 60% ),
-				// 	5px 5px 1px hsl( 110, 90%, 60% ),
-				// 	6px 6px 1px hsl( 130, 90%, 60% ),
-				// 	7px 7px 1px hsl( 150, 90%, 60% ),
-				// 	8px 8px 1px hsl( 170, 90%, 60% ),
-				// 	9px 9px 1px hsl( 190, 90%, 60% ),
-				// 	10px 10px 1px hsl( 210, 90%, 60% ),
-				// 	11px 11px 1px hsl( 230, 90%, 60% ),
-				// 	12px 12px 1px hsl( 250, 90%, 60% ),
-				// 	13px 13px 1px hsl( 270, 90%, 60% ),
-				// 	14px 14px 1px hsl( 290, 90%, 60% ),
-				// 	15px 15px 1px hsl( 310, 90%, 60% ),
-				// 	16px 16px 1px hsl( 330, 90%, 60% ),
-				// 	17px 17px 1px hsl( 350, 90%, 60% );
-	}
+	// h2 {
+	// 	//font-family: 'Lobster', cursive;
+	// 	color:hsl( 270, 90%, 60% );
+	// 	margin: 0 0 0 120px;
+	// 			// text-shadow: 1px 1px 1px hsl(  30, 90%, 60% ),
+	// 			// 	2px 2px 1px hsl(  50, 90%, 60% ),
+	// 			// 	3px 3px 1px hsl(  70, 90%, 60% ),
+	// 			// 	4px 4px 1px hsl(  90, 90%, 60% ),
+	// 			// 	5px 5px 1px hsl( 110, 90%, 60% ),
+	// 			// 	6px 6px 1px hsl( 130, 90%, 60% ),
+	// 			// 	7px 7px 1px hsl( 150, 90%, 60% ),
+	// 			// 	8px 8px 1px hsl( 170, 90%, 60% ),
+	// 			// 	9px 9px 1px hsl( 190, 90%, 60% ),
+	// 			// 	10px 10px 1px hsl( 210, 90%, 60% ),
+	// 			// 	11px 11px 1px hsl( 230, 90%, 60% ),
+	// 			// 	12px 12px 1px hsl( 250, 90%, 60% ),
+	// 			// 	13px 13px 1px hsl( 270, 90%, 60% ),
+	// 			// 	14px 14px 1px hsl( 290, 90%, 60% ),
+	// 			// 	15px 15px 1px hsl( 310, 90%, 60% ),
+	// 			// 	16px 16px 1px hsl( 330, 90%, 60% ),
+	// 			// 	17px 17px 1px hsl( 350, 90%, 60% );
+	// }
 
 	#posts {
 		ul {
@@ -180,18 +180,26 @@ h1, h2, h3, h4, h5, h6 {
 		.q {
 			float: left;
 			width: 120px;
+			span {
+				display: block;
+				color:hsl( 270, 90%, 60% );
+			}
 		}
 		.a {
 			float: left;
 			width: 400px;
 		}
 		ul {
+			margin: 0;
 			li {
 				display: block;
 				.type {
 					display: block;
 					float: left;
 					width: 400px;
+					.title {
+						color:hsl( 270, 90%, 60% );
+					}
 				}
 				&.how {
 					ul { list-style: none; }
