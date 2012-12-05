@@ -23,15 +23,16 @@ var uristring =
 // Ensure safe writes
 var mongoOptions = { db: { safe: true }};
 
-db = mongoose.createConnection(uristring, mongoOptions);
+db = mongoose.connect(uristring, mongoOptions, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
+
 schemas = require('./config/schemas');
 models = require('./config/models');
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  // yay!
-  console.log('connected to db');
-});
 
 var app = express();
 
