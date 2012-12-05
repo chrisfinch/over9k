@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/normalize.css">
@@ -34,11 +34,11 @@
         		</h1>
         	</header>
         	<nav>
-        		<ul id="links">
-        			<li><a href="" id="link">Blog</a></li>
-        			<li><a href="" id="link">About</a></li>
-        			<li><a href="" id="link">Projects</a></li>
-        			<li><a href="" id="link">Contact</a></li>
+        		<ul id="links" class="nav">
+        			<li><a href="#posts" class="link">Blog</a></li>
+        			<li><a href="#about" class="link">About</a></li>
+        			<li><a href="" class="link">Projects</a></li>
+        			<li><a href="" class="link">Contact</a></li>
         		</ul>
         	</nav>
         	<div id="blurb">
@@ -52,7 +52,7 @@
 						p = posts[i]; %>
 						<li class="post clearfix">
 							<div class="date">
-								<span><%=p.niceDate() %></span>
+								<h4><%=p.niceDate() %></h4>
 							</div>
 							<div class="content">
 								<header>
@@ -107,9 +107,12 @@
 									<li class="s fluent"><a href="">CSS pre-processing</a></li>
 									<li class="t fluent"><a href="">LESS</a></li>
 									<li class="t fluent"><a href="">SASS</a></li>
-									<li class="s fluent"><a href="">Progressive Enhancment / Graceful Degredation</a></li>
+									<li class="s fluent"><a href="">Progressive Enhancment</a></li>
 									<li class="t great"><a href="">Media Queries</a></li>
+									<li class="s fluent"><a href="">Graceful Degredation</a></li>
 									<li class="t great"><a href="">SVG</a></li>
+									<li class="s fluent"><a href="">User Experience (UX)</a></li>
+									<li class="s fluent"><a href="">HCI</a></li>
 								</ul>
 							</div>
 							<div class="type">
