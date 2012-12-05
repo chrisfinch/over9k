@@ -13,7 +13,17 @@ var express = require('express')
 
 // GLOBAL: Database
 mongoose = require('mongoose');
-db = mongoose.createConnection('localhost', 'over9k');
+
+// Connect to db, localhost if no ENV vars set
+var uristring = 
+  process.env.MONGODB_URI || 
+  process.env.MONGOLAB_URI || 
+  'mongodb://localhost/over9k';
+
+// Ensure safe writes
+var mongoOptions = { db: { safe: true }};
+
+db = mongoose.createConnection(uristring, mongoOptions);
 schemas = require('./config/schemas');
 models = require('./config/models');
 
