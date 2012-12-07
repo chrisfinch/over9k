@@ -44,6 +44,12 @@ require(["jquery", "bootstrap"], function($) {
 			}
 		});
 
+		$('nav li a').on('click', function (event) {
+			event.preventDefault();
+			var t = $($(this).attr('href')).offset().top;
+			$("html:not(:animated),body:not(:animated)").animate({'scrollTop':t}, 500);
+		});
+
 	});
 
 	var sectionHeight = function (h) {

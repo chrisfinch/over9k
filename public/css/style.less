@@ -170,6 +170,24 @@ article {
 	margin: 0 0 0 230px;
 	padding: 24px 0 0 0;
 
+	opacity: 0;
+
+	-moz-animation-name: fadeIn;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-direction: normal;
+	-moz-animation-delay: 0.5s;
+	-moz-animation-fill-mode: forwards;
+
+	-webkit-animation-name: fadeIn;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-direction: normal;
+	-webkit-animation-delay: 0.5s;
+	-webkit-animation-fill-mode: forwards;
+
 	section {
 		border-top: 1px solid #333;
 		border-color: rgba(255, 255, 255, 0.05 );
@@ -282,4 +300,25 @@ article {
 		}
 	}
 
+}
+
+
+// Animations =============================
+
+@-moz-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
