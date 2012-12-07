@@ -7,32 +7,45 @@ var express = require('express')
   , routes = require('./routes')
   , posts = require('./routes/posts')
   , projects = require('./routes/projects')
+  , contact = require('./routes/contact')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
-// GLOBAL: Database
-mongoose = require('mongoose');
+// DATABASE ==============================
 
-// Connect to db, localhost if no ENV vars set
-var uristring = 
-  process.env.MONGODB_URI || 
-  process.env.MONGOLAB_URI || 
-  'mongodb://localhost/over9k';
+  mongoose = require('mongoose');
 
-// Ensure safe writes
-var mongoOptions = { db: { safe: true }};
+  // Connect to db, localhost if no ENV vars set
+  var uristring = 
+    process.env.MONGODB_URI || 
+    process.env.MONGOLAB_URI || 
+    'mongodb://localhost/over9k';
 
-db = mongoose.connect(uristring, mongoOptions, function (err, res) {
-  if (err) { 
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
-    console.log ('Succeeded connected to: ' + uristring);
-  }
-});
+  // Ensure safe writes
+  var mongoOptions = { db: { safe: true }};
 
-schemas = require('./config/schemas');
-models = require('./config/models');
+  db = mongoose.connect(uristring, mongoOptions, function (err, res) {
+    if (err) { 
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    } else {
+      console.log ('Succeeded connected to: ' + uristring);
+    }
+  });
+
+  schemas = require('./config/schemas');
+  models = require('./config/models');
+
+// EMAIL =================================
+
+  emailjs = require('emailjs');
+
+  email = emailjs.server.connect({
+    user:    "andgt9k", 
+    password:"pword456", 
+    host:    "smtp.gmail.com",
+    ssl: true
+  });
 
 var app = express();
 
@@ -65,6 +78,9 @@ app.post('/posts/new', posts.create);
 // PROJECTS
 app.get('/projects/new', projects.create);
 app.post('/projects/new', projects.create);
+
+// CONTACT
+app.post('/contact', contact.submit);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

@@ -7,7 +7,7 @@
 body {
   background-color: #1D1D1D;
   color: #fff;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   text-shadow: 1px 1px 1px #000;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
   font-size: 13px;
@@ -83,12 +83,23 @@ nav a:hover {
   color: #3dd6f5;
   text-shadow: 0 0 6px #3dd6f5;
 }
+#navigation nav ul.nav li.active a:after {
+  opacity: 1;
+}
 #navigation nav ul.nav li a {
   font-size: 18px;
   display: block;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+#navigation nav ul.nav li a:after {
+  content: " >";
+  opacity: 0;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
@@ -138,6 +149,20 @@ article code {
   width: 700px;
   padding: 24px;
 }
+#content section .side {
+  float: left;
+  width: 200px;
+}
+#content section .side h1,
+#content section .side h2,
+#content section .side h3,
+#content section .side h4 {
+  margin: 0;
+}
+#content section .main {
+  float: left;
+  width: 500px;
+}
 #content #posts ul {
   margin: 0;
 }
@@ -145,34 +170,14 @@ article code {
   display: block;
   margin: 0 0 24px 0;
 }
-#content #posts .post .date {
-  float: left;
-  width: 200px;
-}
 #content #posts .post .date h4 {
-  margin: 0;
   line-height: 40px;
-}
-#content #posts .post .content {
-  float: left;
-  width: 500px;
 }
 #content #posts .post .content header {
   padding: 0 0 12px 0;
 }
 #content #posts .post .content header h3 {
   margin: 0;
-}
-#content #about .q {
-  float: left;
-  width: 200px;
-}
-#content #about .q h2 {
-  margin: 0;
-}
-#content #about .a {
-  float: left;
-  width: 500px;
 }
 #content #about ul {
   margin: 0;
@@ -229,4 +234,14 @@ article code {
 }
 #content #about ul li.how li.good a {
   font-size: 10px;
+}
+#content #contact .text {
+  width: 306px;
+}
+#content #contact .text#message {
+  height: 200px;
+}
+#content #contact #loader {
+  margin: 0 0 0 12px;
+  display: none;
 }

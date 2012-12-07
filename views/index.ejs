@@ -18,7 +18,10 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel='stylesheet' href='/css/style.css' />
+        
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<script data-main="js/main" src="js/vendor/require.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -38,7 +41,7 @@
         			<li><a href="#posts" class="link">Blog</a></li>
         			<li><a href="#about" class="link">About</a></li>
         			<li><a href="" class="link">Projects</a></li>
-        			<li><a href="" class="link">Contact</a></li>
+        			<li><a href="#contact" class="link">Contact</a></li>
         		</ul>
         	</nav>
         	<div id="blurb">
@@ -51,10 +54,10 @@
 					<% for (var i=0;i<=posts.length-1;i++) {
 						p = posts[i]; %>
 						<li class="post clearfix">
-							<div class="date">
+							<div class="date side">
 								<h4><%=p.niceDate() %></h4>
 							</div>
-							<div class="content">
+							<div class="content main">
 								<header>
 									<h3 class="title"><%=p.title %></h3>
 									<h4>by <%=p.author %></h4>
@@ -71,23 +74,23 @@
 			<section id="about">
 				<ul>
 					<li class="what clearfix">
-						<div class="q"><h2>What?</h2></div>
-						<div class="a">
+						<div class="q side"><h2>What?</h2></div>
+						<div class="a main">
 							<p>Overninethousand ltd. is a web design and development company specialising in frontend and user interface development.</p>
 							<p>Based in the South East uk, and with a variety of clients from the UK and abroad in mainland europe, Overninethousand develops, deploys and maintains small to medium sized web sites and presences for organisations and idividuals as well as taking part in larger projects on a contract basis for User interface development work.</p>
 						</div>
 					</li>
 					<li class="who clearfix">
-						<div class="q"><h2>Who?</h2></div>
-						<div class="a">
+						<div class="q side"><h2>Who?</h2></div>
+						<div class="a main">
 							<p>Overninethousand ltd. is the corporate representation of me, Chris Finch, User Interface engineer and Frontend Web Devevloper.</p>
 							<p>I currently work for BBC Research and Development in London, UK and have previously been based in Amsterdam, the Netherlands.</p>
 							<p>If you wish to contact me please do so thought this website.</p>
 						</div>
 					</li>
 					<li class="how clearfix">
-						<div class="q"><h2>How?</h2></div>
-						<div class="a">
+						<div class="q side"><h2>How?</h2></div>
+						<div class="a main">
 							<div class="type">
 								<h3 class="title">Markup and browser technology</h3>
 								<ul class="clearfix">
@@ -168,14 +171,6 @@
 							</div>
 						</div>
 					</li>
-					<li>
-						<div class="q"><span></span></div>
-						<div class="a"></div>
-					</li>
-					<li>
-						<div class="q"><span></span></div>
-						<div class="a"></div>
-					</li>
 				</ul>
 			</section>
 
@@ -187,15 +182,61 @@
 					<% } %>
 				</ul>
 			</div> -->
+
+			<section id="contact">
+
+				<div id="alert-success" class="alert alert-success hide">
+					<span><strong>Thankyou.</strong> Your message has been sent and will be responded to as soon as possible.</span>
+				</div>
+
+				<div id="alert-error" class="alert alert-error hide">
+					<span><strong>There was an error sending your message.</strong> Please try again.</span>
+				</div>
+
+				<div class="desc side">
+
+					<h2>Contact</h2>
+					<p>Please complete this form to contact >9k or Chris.</p>
+
+				</div>
+				<div class="form main">
+
+					<form method="post" action="contact" class="form-horizontal">
+
+						<div class="control-group">
+							<label class="control-label" for="name">Name</label>
+							<div class="controls">
+								<input id="name" class="text" name="name" type="text" placeholder="Name" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="email">Email</label>
+							<div class="controls">
+								<input id="email" class="text" name="email" type="email" placeholder="Email" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="message">Message</label>
+							<div class="controls">
+								<textarea id="message" class="text" name="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<div class="controls">
+								<button id="submit" type="submit" class="btn">Send</button><img id="loader" src="/img/ajax-loader.gif" />
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+
+			</section>
+
         </div>
-
-
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <!--

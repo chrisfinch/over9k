@@ -21,7 +21,6 @@ exports.post.methods.niceDate = function () {
 };
 
 exports.post.methods.niceBody = function () {
-	console.log('body', this.body);
 	return md(this.body);
 };
 
