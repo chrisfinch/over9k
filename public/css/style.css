@@ -332,9 +332,12 @@ article code {
     text-transform: uppercase;
   }
   #content {
-    padding: 80px 24px 0 24px;
+    padding: 0 24px;
     width: 700px;
     margin: 0 auto;
+  }
+  #content section {
+    padding: 104px;
   }
   #navigation {
     right: 0;
