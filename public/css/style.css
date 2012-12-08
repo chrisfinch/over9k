@@ -317,6 +317,15 @@ article code {
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   /* Styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  nav a {
+    font-family: 'Helvetica Neue', Helvetica;
+  }
 }
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -329,7 +338,6 @@ article code {
   h6,
   nav a {
     font-family: 'Helvetica Neue', Helvetica;
-    text-transform: uppercase;
   }
   #content {
     padding: 0 24px;
