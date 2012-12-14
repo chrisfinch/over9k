@@ -17,16 +17,16 @@ var express = require('express')
   mongoose = require('mongoose');
 
   // Connect to db, localhost if no ENV vars set
-  var uristring = 
-    process.env.MONGODB_URI || 
-    process.env.MONGOLAB_URI || 
+  var uristring =
+    process.env.MONGODB_URI ||
+    process.env.MONGOLAB_URI ||
     'mongodb://localhost/over9k';
 
   // Ensure safe writes
   var mongoOptions = { db: { safe: true }};
 
   db = mongoose.connect(uristring, mongoOptions, function (err, res) {
-    if (err) { 
+    if (err) {
       console.log ('ERROR connecting to: ' + uristring + '. ' + err);
     } else {
       console.log ('Succeeded connected to: ' + uristring);
@@ -41,8 +41,8 @@ var express = require('express')
   emailjs = require('emailjs');
 
   email = emailjs.server.connect({
-    user:    "andgt9k", 
-    password:"pword456", 
+    user:    "andgt9k",
+    password:"pword456",
     host:    "smtp.gmail.com",
     ssl: true
   });
@@ -55,7 +55,9 @@ app.configure(function(){
   app.set('view engine', 'ejs');
   app.use(express.favicon());
   app.use(express.logger('dev'));
-  app.use(express.bodyParser());
+  app.use(express.bodyParser({
+    uploadDir: './tmp'
+  }));
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());

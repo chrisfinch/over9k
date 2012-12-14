@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel='stylesheet' href='/css/style.css' />
-        
+
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		<script data-main="js/main" src="js/vendor/require.js"></script>
 
@@ -54,6 +54,7 @@
 					<% for (var i=0;i<=posts.length-1;i++) {
 						p = posts[i]; %>
 						<li class="post clearfix">
+							<img src="<%=p.image %>" />
 							<div class="date side">
 								<h4><%=p.niceDate() %></h4>
 							</div>
