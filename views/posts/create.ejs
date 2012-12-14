@@ -8,9 +8,10 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
-    <form method="post" action="/posts/new" id="new_post">
+    <form method="post" action="/posts/new" id="new_post" enctype="multipart/form-data">
     	<input type="text" name="title">
     	<textarea name="body" id="" cols="30" rows="10"></textarea>
+      <input type="file" name="image">  
     	<input type="submit" />
     </form>
 

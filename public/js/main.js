@@ -53,8 +53,10 @@ require(["jquery", "bootstrap"], function($) {
 	});
 
 	var sectionHeight = function (h) {
+
 		$('section').each(function () {
 			$(this).css('minHeight', h-( parseInt($(this).css('paddingTop'), 10) + parseInt($(this).css('paddingBottom'), 10) ));
+		//$('#lol').html(h + ' / ' + parseInt($(this).css('paddingTop'), 10) + ' / ' + parseInt($(this).css('paddingBottom'), 10) );			
 		});
 		$('[data-spy="scroll"]').each(function () {
 			var $spy = $(this).scrollspy('refresh')

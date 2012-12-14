@@ -7,6 +7,7 @@ exports.post = new mongoose.Schema({
 	title: String,
 	author: { type: String, default: 'Chris Finch'},
 	date: { type: Date, default: Date.now },
+	image: String,
 	body: String
 });
 
