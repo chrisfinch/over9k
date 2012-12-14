@@ -1,15 +1,18 @@
 require.config({
   paths: {
     jquery: 'vendor/jquery-1.8.2.min',
-    bootstrap: 'vendor/bootstrap.min'
+    bootstrap: 'vendor/bootstrap.min',
+    logo: 'logo'
   }
 
 });
 
-require(["jquery", "bootstrap"], function($) {
+require(["jquery", "bootstrap", "logo"], function($, logo) {
 
 	$(function () {
-		
+
+		logo.start();
+
 		var h = $(window).height();
 
 		sectionHeight(h);
@@ -33,14 +36,14 @@ require(["jquery", "bootstrap"], function($) {
 			if ( _form.validateForm($contact) ) {
 				$.post('/contact', _form.gatherForm($contact))
 					.done(function () {
-						$('#loader').hide();						
+						$('#loader').hide();
 						$('.alert-success').slideDown();
 						_form.tidy($contact);
 					})
 					.fail(function () {
 						$('#loader').hide();
 						$('.alert-error').slideDown();
-					});	
+					});
 			}
 		});
 
@@ -56,7 +59,7 @@ require(["jquery", "bootstrap"], function($) {
 
 		$('section').each(function () {
 			$(this).css('minHeight', h-( parseInt($(this).css('paddingTop'), 10) + parseInt($(this).css('paddingBottom'), 10) ));
-		//$('#lol').html(h + ' / ' + parseInt($(this).css('paddingTop'), 10) + ' / ' + parseInt($(this).css('paddingBottom'), 10) );			
+		//$('#lol').html(h + ' / ' + parseInt($(this).css('paddingTop'), 10) + ' / ' + parseInt($(this).css('paddingBottom'), 10) );
 		});
 		$('[data-spy="scroll"]').each(function () {
 			var $spy = $(this).scrollspy('refresh')
@@ -65,27 +68,27 @@ require(["jquery", "bootstrap"], function($) {
 
 	/* form handlers */
 	_form = {
-		
+
 		doDefaultValues : function ($form) {
 			$form.find('.text').each(function (i, e) {
 				var $e = $(e);
 				if (typeof $e.data('val') == 'undefined') {
 					$e.data('val', $e.val());
-				}				
+				}
 			});
 			$form.find('.text').on('focus', function () {
 				var $e = $(this);
 				if ($e.val() == $e.data('val')) {
-					$e.val('');					
+					$e.val('');
 				}
 				$e.on('blur', function () {
 					if ($e.val() == '') {
 						$e.val($e.data('val'));
 					}
 				});
-			});			
+			});
 		},
-		
+
 		gatherForm : function ($form) {
 			var d = {};
 			$form.find('.text,.chkbx').each(function (i, e) {
@@ -94,7 +97,7 @@ require(["jquery", "bootstrap"], function($) {
 			});
 			return d;
 		},
-		
+
 		tidy : function ($form) {
 			$form.find('.text,.chkbx').each(function (i, e) {
 				$(this).val($(this).data('val'));
@@ -120,15 +123,15 @@ require(["jquery", "bootstrap"], function($) {
 						$e.addClass('invalid');
 						invalid.push($e);
 					}
-				}		
+				}
 			});
-			
+
 			if (valid) {
 				return valid;
 			} else {
 				return invalid;
 			}
-		}	
+		}
 	};
 
 });
