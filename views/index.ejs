@@ -29,7 +29,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-
+        <div class="brd"></div>
         <div id="navigation">
         	<header>
         		<h1>
@@ -40,7 +40,7 @@
         		<ul id="links" class="nav">
         			<li><a href="#posts" class="link">Blog</a></li>
         			<li><a href="#about" class="link">About</a></li>
-        			<li><a href="" class="link">Projects</a></li>
+        			<li><a href="#projects" class="link disabled" title="Coming soon">Projects</a></li>
         			<li><a href="#contact" class="link">Contact</a></li>
         		</ul>
         	</nav>
@@ -54,7 +54,6 @@
 					<% for (var i=0;i<=posts.length-1;i++) {
 						p = posts[i]; %>
 						<li class="post clearfix">
-							<img src="<%=p.image %>" />
 							<div class="date side">
 								<h4><%=p.niceDate() %></h4>
 							</div>
@@ -63,6 +62,9 @@
 									<h3 class="title"><%=p.title %></h3>
 									<h4>by <%=p.author %></h4>
 								</header>
+								<% if (p.image) { %>
+									<div class="image"><img src="<%=p.image %>" /></div>
+								<% } %>
 								<article>
 									<%-p.niceBody() %>
 								</article>

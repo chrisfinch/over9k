@@ -23,6 +23,15 @@ body {
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
 	font-size: 13px;
 	line-height: 1.2;
+	.brd {
+		background-color: #d01e53;
+		height: 1px;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
 }
 
 h1, h2, h3, h4, h5, h6, nav a {
@@ -135,6 +144,10 @@ nav a:hover { color: hsl( 190, 90%, 60% ); text-shadow: 0 0 6px hsl( 190, 90%, 6
 						text-decoration: none;
 						background: none;
 					}
+					&.disabled {
+						color: #333;
+						text-shadow: none;
+					}
 				}
 			}
 		}
@@ -175,7 +188,6 @@ article {
 
 #content {
 	margin: 0 0 0 230px;
-	padding: 24px 0 0 0;
 
 	opacity: 0;
 
@@ -196,8 +208,10 @@ article {
 	-webkit-animation-fill-mode: forwards;
 
 	section {
+		margin: -1px 0 0 0;
 		border-top: 1px solid #333;
 		border-color: rgba(255, 255, 255, 0.05 );
+		border-color: #d01e53;
 		width: 700px;
 		padding: 24px;
 		.side {
@@ -232,6 +246,13 @@ article {
 					h3 {
 						margin: 0;
 					}
+				}
+				.image {
+					img {
+						border: 1px solid rgba(255,255,255,0.5);
+						padding: 1px;
+					}
+					margin: 0 0 12px 0;
 				}
 			}
 		}
@@ -352,6 +373,34 @@ article {
 
 // Responsive ==============================
 
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 1280px) {
+/* Styles */
+
+	#content {
+
+		section {
+			width: 1002px;
+			.post .content.main {
+				width: 802px !important;
+				article {
+					float: left;
+					width: 500px;
+				}
+				.image {
+					float: right;
+					max-width: 298px;
+					overflow: hidden;
+					margin: 0;
+				}
+			}
+		}
+
+	}
+
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 320px)
@@ -376,7 +425,7 @@ and (max-width : 320px) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px) {
 /* Styles */
-	
+
 	body {
 		font-size: 16px
 	}

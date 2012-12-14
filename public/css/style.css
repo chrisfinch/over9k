@@ -13,6 +13,15 @@ body {
   font-size: 13px;
   line-height: 1.2;
 }
+body .brd {
+  background-color: #d01e53;
+  height: 1px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 h1,
 h2,
 h3,
@@ -114,6 +123,10 @@ nav a:hover {
   text-decoration: none;
   background: none;
 }
+#navigation nav ul.nav li a.disabled {
+  color: #333;
+  text-shadow: none;
+}
 #navigation #blurb {
   padding: 6px 12px;
   position: fixed;
@@ -146,7 +159,6 @@ article code {
 }
 #content {
   margin: 0 0 0 230px;
-  padding: 24px 0 0 0;
   opacity: 0;
   -moz-animation-name: fadeIn;
   -moz-animation-timing-function: linear;
@@ -164,8 +176,10 @@ article code {
   -webkit-animation-fill-mode: forwards;
 }
 #content section {
+  margin: -1px 0 0 0;
   border-top: 1px solid #333;
   border-color: rgba(255, 255, 255, 0.05);
+  border-color: #d01e53;
   width: 700px;
   padding: 24px;
 }
@@ -198,6 +212,13 @@ article code {
 }
 #content #posts .post .content header h3 {
   margin: 0;
+}
+#content #posts .post .content .image {
+  margin: 0 0 12px 0;
+}
+#content #posts .post .content .image img {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 1px;
 }
 #content #about ul {
   margin: 0;
@@ -297,6 +318,26 @@ article code {
   }
   100% {
     -webkit-filter: grayscale(0%) drop-shadow(0 0 25px #d01e53);
+  }
+}
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 1280px) {
+  /* Styles */
+  #content section {
+    width: 1002px;
+  }
+  #content section .post .content.main {
+    width: 802px !important;
+  }
+  #content section .post .content.main article {
+    float: left;
+    width: 500px;
+  }
+  #content section .post .content.main .image {
+    float: right;
+    max-width: 298px;
+    overflow: hidden;
+    margin: 0;
   }
 }
 /* Smartphones (portrait and landscape) ----------- */
