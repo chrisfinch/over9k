@@ -7,7 +7,7 @@ require.config({
 
 });
 
-require(["jquery", "bootstrap", "logo"], function($, logo) {
+require(["jquery", "logo", "bootstrap"], function($, logo) {
 
 	$(function () {
 
