@@ -9,7 +9,7 @@ require.config({
 
 require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 
-	var sectionHeight = function (h) {
+	var sectionHeight = function (h, cb) {
 
 		$('section').each(function () {
 			$(this).css('minHeight', h-( parseInt($(this).css('paddingTop'), 10) + parseInt($(this).css('paddingBottom'), 10) ));
@@ -18,6 +18,7 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 		$('[data-spy="scroll"]').each(function () {
 			var $spy = $(this).scrollspy('refresh');
 		});
+		if (cb) cb();
 	};
 
 	/* form handlers */
@@ -92,11 +93,16 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 
 		var h = $(window).height();
 
-		sectionHeight(h);
+		sectionHeight(h, function () {
+			logo.start();
 
-		logo.start();
+			title.start();
 
-		title.start();
+			$('#content').addClass('show');
+
+		});
+
+
 
 		$(window).on('resize', function () {
 			h = $(window).height();

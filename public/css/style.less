@@ -198,21 +198,23 @@ article {
 
 	opacity: 0;
 
-	-moz-animation-name: fadeIn;
-	-moz-animation-timing-function: linear;
-	-moz-animation-iteration-count: 1;
-	-moz-animation-duration: 0.5s;
-	-moz-animation-direction: normal;
-	-moz-animation-delay: 0.5s;
-	-moz-animation-fill-mode: forwards;
+	&.show {
+		-moz-animation-name: fadeIn;
+		-moz-animation-timing-function: linear;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-duration: 0.5s;
+		-moz-animation-direction: normal;
+		-moz-animation-delay: 0.5s;
+		-moz-animation-fill-mode: forwards;
 
-	-webkit-animation-name: fadeIn;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-duration: 0.5s;
-	-webkit-animation-direction: normal;
-	-webkit-animation-delay: 0.5s;
-	-webkit-animation-fill-mode: forwards;
+		-webkit-animation-name: fadeIn;
+		-webkit-animation-timing-function: linear;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-duration: 0.5s;
+		-webkit-animation-direction: normal;
+		-webkit-animation-delay: 0.5s;
+		-webkit-animation-fill-mode: forwards;		
+	}
 
 	section {
 		margin: -1px 0 0 0;

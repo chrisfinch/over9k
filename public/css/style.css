@@ -166,6 +166,8 @@ article code {
 #content {
   margin: 0 0 0 230px;
   opacity: 0;
+}
+#content.show {
   -moz-animation-name: fadeIn;
   -moz-animation-timing-function: linear;
   -moz-animation-iteration-count: 1;
