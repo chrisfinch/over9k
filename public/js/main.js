@@ -9,54 +9,6 @@ require.config({
 
 require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 
-	$(function () {
-
-		var h = $(window).height();
-
-		sectionHeight(h);
-
-		logo.start();
-
-		title.start();
-
-		$(window).on('resize', function () {
-			h = $(window).height();
-			sectionHeight(h);
-		});
-
-		$('body').scrollspy({
-			offset: 48
-		});
-
-		var $contact = $('#contact form');
-
-		_form.doDefaultValues($contact);
-
-		$contact.on('submit', function (event) {
-			event.preventDefault();
-			$('#loader').show();
-			if ( _form.validateForm($contact) ) {
-				$.post('/contact', _form.gatherForm($contact))
-					.done(function () {
-						$('#loader').hide();
-						$('.alert-success').slideDown();
-						_form.tidy($contact);
-					})
-					.fail(function () {
-						$('#loader').hide();
-						$('.alert-error').slideDown();
-					});
-			}
-		});
-
-		$('nav li a').on('click', function (event) {
-			event.preventDefault();
-			var t = $($(this).attr('href')).offset().top;
-			$("html:not(:animated),body:not(:animated)").animate({'scrollTop':t}, 500);
-		});
-
-	});
-
 	var sectionHeight = function (h) {
 
 		$('section').each(function () {
@@ -112,14 +64,14 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 			$form.find('.text').each(function (i, e) {
 				var $e = $(e);
 				$e.removeClass('invalid');
-				if ($e.data('required') == 'required' && ($e.val() == '' || $e.val() == $e.data('val'))) {
+				if ($e.data('required') == 'required' && ($e.val() === '' || $e.val() == $e.data('val'))) {
 					valid = false;
 					$e.addClass('invalid');
 					invalid.push($e);
 				}
-				if ($e.attr('id') == 'email' && $e.val() != '' && $e.val() != $e.data('val')) {
-				    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-				    var test = re.test($e.val());
+				if ($e.attr('id') == 'email' && $e.val() !== '' && $e.val() != $e.data('val')) {
+					var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					var test = re.test($e.val());
 					if (!test) {
 						valid = false;
 						$e.addClass('invalid');
@@ -135,5 +87,53 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 			}
 		}
 	};
+
+	$(function () {
+
+		var h = $(window).height();
+
+		sectionHeight(h);
+
+		logo.start();
+
+		title.start();
+
+		$(window).on('resize', function () {
+			h = $(window).height();
+			sectionHeight(h);
+		});
+
+		$('body').scrollspy({
+			offset: 48
+		});
+
+		var $contact = $('#contact form');
+
+		_form.doDefaultValues($contact);
+
+		$contact.on('submit', function (event) {
+			event.preventDefault();
+			$('#loader').show();
+			if ( _form.validateForm($contact) ) {
+				$.post('/contact', _form.gatherForm($contact))
+					.done(function () {
+						$('#loader').hide();
+						$('.alert-success').slideDown();
+						_form.tidy($contact);
+					})
+					.fail(function () {
+						$('#loader').hide();
+						$('.alert-error').slideDown();
+					});
+			}
+		});
+
+		$('nav li a').on('click', function (event) {
+			event.preventDefault();
+			var t = $($(this).attr('href')).offset().top;
+			$("html:not(:animated),body:not(:animated)").animate({'scrollTop':t}, 500);
+		});
+
+	});
 
 });
