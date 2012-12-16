@@ -7,11 +7,13 @@ require.config({
 
 });
 
-require(["jquery", "logo", "bootstrap"], function($, logo) {
+require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 
 	$(function () {
 
 		logo.start();
+
+		title.start();
 
 		var h = $(window).height();
 

@@ -197,6 +197,13 @@ article code {
   float: left;
   width: 500px;
 }
+#content #home h1 {
+  margin: 0;
+  float: left;
+  position: absolute;
+  color: #5c3df5;
+  text-shadow: 0 0 24px #5c3df5;
+}
 #content #posts ul {
   margin: 0;
 }
