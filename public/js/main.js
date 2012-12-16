@@ -64,9 +64,9 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 		//$('#lol').html(h + ' / ' + parseInt($(this).css('paddingTop'), 10) + ' / ' + parseInt($(this).css('paddingBottom'), 10) );
 		});
 		$('[data-spy="scroll"]').each(function () {
-			var $spy = $(this).scrollspy('refresh')
+			var $spy = $(this).scrollspy('refresh');
 		});
-	}
+	};
 
 	/* form handlers */
 	_form = {
@@ -84,7 +84,7 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 					$e.val('');
 				}
 				$e.on('blur', function () {
-					if ($e.val() == '') {
+					if ($e.val() === '') {
 						$e.val($e.data('val'));
 					}
 				});
