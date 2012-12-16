@@ -11,13 +11,13 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 
 	$(function () {
 
-		logo.start();
-
-		title.start();
-
 		var h = $(window).height();
 
 		sectionHeight(h);
+
+		logo.start();
+
+		title.start();
 
 		$(window).on('resize', function () {
 			h = $(window).height();
