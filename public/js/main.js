@@ -140,6 +140,12 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 			$("html:not(:animated),body:not(:animated)").animate({'scrollTop':t}, 500);
 		});
 
+
+		// Business or Pleasure?
+		$('#switch .switch-input').on('change', function (event) {
+			$('body').removeClass('business pleasure').addClass($(this).val());
+			$(window).trigger('resize');
+		});
 	});
 
 });

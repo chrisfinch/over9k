@@ -4,17 +4,22 @@
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
 }
+.no-trans {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
 body {
-  background-color: #1D1D1D;
-  color: #fff;
-  color: rgba(255, 255, 255, 0.6);
-  text-shadow: 1px 1px 1px #000;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
   font-size: 13px;
   line-height: 1.2;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
 }
 body .brd {
-  background-color: #d01e53;
   height: 1px;
   width: 100%;
   position: fixed;
@@ -22,47 +27,148 @@ body .brd {
   left: 0;
   right: 0;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-nav a {
+body.business {
+  background-color: #fff;
+  color: #333;
+  color: rgba(0, 0, 0, 0.6);
+}
+body.business .brd {
+  background-color: #333;
+}
+body.business h1,
+body.business h2,
+body.business h3,
+body.business h4,
+body.business h5,
+body.business h6,
+body.business nav a {
+  font-family: Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+body.business nav a {
+  color: #333;
+  color: rgba(0, 0, 0, 0.6);
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+body.business nav a:hover {
+  color: #000;
+  color: #000000;
+  text-decoration: underline !important;
+}
+body.business nav a.disabled {
+  color: #e1e1e1 !important;
+}
+body.business nav a.disabled:hover {
+  text-decoration: none !important;
+}
+body.business #logo {
+  -webkit-filter: grayscale(100%);
+}
+body.business #about ul li.how li a {
+  border: 1px solid #333;
+  color: #fff;
+  background-color: #333;
+}
+body.business #about ul li.how li.t a {
+  background-color: #333;
+}
+body.business #about ul li.how li.s a {
+  background-color: #999;
+}
+body.pleasure {
+  background-color: #1D1D1D;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 1px 1px 1px #000;
+}
+body.pleasure .brd {
+  background-color: #d01e53;
+}
+body.pleasure h1,
+body.pleasure h2,
+body.pleasure h3,
+body.pleasure h4,
+body.pleasure h5,
+body.pleasure h6,
+body.pleasure nav a {
   font-family: 'Julius Sans One', sans-serif;
   text-transform: uppercase;
 }
-h1 {
+body.pleasure h1 {
   color: #5c3df5;
   text-shadow: 0 0 6px #5c3df5;
 }
-h2 {
+body.pleasure h2 {
   color: #993df5;
   text-shadow: 0 0 6px #993df5;
 }
-h3 {
+body.pleasure h3 {
   color: #d63df5;
   text-shadow: 0 0 6px #d63df5;
 }
-h4 {
+body.pleasure h4 {
   color: #f53dd6;
   text-shadow: 0 0 6px #f53dd6;
 }
-h5 {
+body.pleasure h5 {
   color: #f53d99;
   text-shadow: 0 0 6px #f53d99;
 }
-h6 {
+body.pleasure h6 {
   color: #f53d5c;
   text-shadow: 0 0 6px #f53d5c;
 }
-nav a {
+body.pleasure nav a {
   color: #5cf53d;
   text-shadow: 0 0 6px #5cf53d;
 }
-nav a:hover {
+body.pleasure nav a:hover {
   color: #3dd6f5;
   text-shadow: 0 0 6px #3dd6f5;
+}
+body.pleasure nav .active a {
+  color: #3dd6f5 !important;
+  text-shadow: 0 0 6px #3dd6f5 !important;
+}
+body.pleasure #logo {
+  -webkit-animation-name: flicker;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-filter: grayscale(100%) drop-shadow(0 0 0 #000000);
+}
+body.pleasure #home h1 {
+  color: #5c3df5;
+  text-shadow: 0 0 24px #5c3df5;
+}
+body.pleasure #content section {
+  border-color: rgba(255, 255, 255, 0.05);
+  border-color: #d01e53;
+}
+body.pleasure #about ul li.how li a {
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: #555;
+}
+body.pleasure #about ul li.how li.t a {
+  background-color: #99f53d;
+}
+body.pleasure #about ul li.how li.s a {
+  background-color: #f53d99;
+}
+body.pleasure #blurb .star {
+  color: #d63df5;
+}
+body.pleasure .switch-selection {
+  background-image: -webkit-linear-gradient(top, #e33e6f, #d01e53);
+  background-image: -moz-linear-gradient(top, #e33e6f, #d01e53);
+  background-image: -o-linear-gradient(top, #e33e6f, #d01e53);
+  background-image: linear-gradient(to bottom, #e33e6f, #d01e53);
 }
 #navigation {
   width: 210px;
@@ -88,21 +194,12 @@ nav a:hover {
 #navigation header nav ul.nav li#logo h1 img {
   margin: 0 0 0 48px;
   display: block;
-  -webkit-animation-name: flicker;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-filter: grayscale(100%) drop-shadow(0 0 0 #000000);
 }
 #navigation header nav ul.nav li#logo a:after {
   display: none !important;
 }
 #navigation header nav ul.nav li.active a {
   font-size: 24px;
-  color: #3dd6f5;
-  text-shadow: 0 0 6px #3dd6f5;
 }
 #navigation header nav ul.nav li.active a:after {
   opacity: 1;
@@ -149,7 +246,6 @@ nav a:hover {
   opacity: 0.9999;
 }
 #navigation #blurb .star {
-  color: #d63df5;
   font-size: 28px;
   line-height: 0px;
   display: inline-block;
@@ -186,10 +282,9 @@ article code {
 #content section {
   margin: -1px 0 0 0;
   border-top: 1px solid #333;
-  border-color: rgba(255, 255, 255, 0.05);
-  border-color: #d01e53;
   width: 700px;
   padding: 24px;
+  position: relative;
 }
 #content section .side {
   float: left;
@@ -212,8 +307,6 @@ article code {
   margin: 0;
   float: left;
   position: absolute;
-  color: #5c3df5;
-  text-shadow: 0 0 24px #5c3df5;
 }
 #content #posts ul {
   margin: 0;
@@ -267,10 +360,7 @@ article code {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  border: 1px solid #fff;
-  color: #fff;
   font-size: 12px;
-  background-color: #555;
   line-height: 22px;
   height: 22px;
   -webkit-transition: all 0.25s linear;
@@ -280,12 +370,6 @@ article code {
 }
 #content #about ul li.how li a:hover {
   text-decoration: none;
-}
-#content #about ul li.how li.t a {
-  background-color: #99f53d;
-}
-#content #about ul li.how li.s a {
-  background-color: #f53d99;
 }
 #content #about ul li.how li.fluent a {
   font-size: 18px;
@@ -484,4 +568,65 @@ article code {
 /* iPhone 4 ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   /* Styles */
+}
+#switch {
+  position: relative;
+  margin: 40px 0 0 0;
+  height: 40px;
+  width: 160px;
+  background-color: #333;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+#switch .switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 78px;
+  line-height: 40px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+#switch .switch-label-off {
+  padding-left: 2px;
+}
+#switch .switch-label-on {
+  padding-right: 2px;
+}
+#switch .switch-input {
+  display: none;
+}
+#switch .switch-input:checked + .switch-label {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+}
+#switch .switch-input:checked + .switch-label-on ~ .switch-selection {
+  left: 78px;
+  /* Note: left: 50% doesn't transition in WebKit */
+
+}
+#switch .switch-selection {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+  width: 80px;
+  height: 36px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: left 0.15s ease-out;
+  -moz-transition: left 0.15s ease-out;
+  -o-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out;
+  background-color: #999;
 }
