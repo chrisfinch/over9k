@@ -70,10 +70,22 @@ nav a:hover {
   top: 0;
   left: 0;
 }
-#navigation header h1 {
+#navigation header nav {
+  padding: 12px 0 0 0;
+}
+#navigation header nav ul.nav {
+  margin: 0;
+}
+#navigation header nav ul.nav li {
+  padding: 12px 0 12px 48px;
+}
+#navigation header nav ul.nav li#logo {
+  padding: 0 !important;
+}
+#navigation header nav ul.nav li#logo h1 {
   width: 210px;
 }
-#navigation header h1 img {
+#navigation header nav ul.nav li#logo h1 img {
   margin: 0 0 0 48px;
   display: block;
   -webkit-animation-name: flicker;
@@ -84,24 +96,18 @@ nav a:hover {
   -webkit-animation-fill-mode: forwards;
   -webkit-filter: grayscale(100%) drop-shadow(0 0 0 #000000);
 }
-#navigation nav {
-  padding: 12px 0 0 0;
+#navigation header nav ul.nav li#logo a:after {
+  display: none !important;
 }
-#navigation nav ul.nav {
-  margin: 0;
-}
-#navigation nav ul.nav li {
-  padding: 12px 0 12px 48px;
-}
-#navigation nav ul.nav li.active a {
+#navigation header nav ul.nav li.active a {
   font-size: 24px;
   color: #3dd6f5;
   text-shadow: 0 0 6px #3dd6f5;
 }
-#navigation nav ul.nav li.active a:after {
+#navigation header nav ul.nav li.active a:after {
   opacity: 1;
 }
-#navigation nav ul.nav li a {
+#navigation header nav ul.nav li a {
   font-size: 18px;
   display: block;
   font-size: 20px;
@@ -111,7 +117,7 @@ nav a:hover {
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
 }
-#navigation nav ul.nav li a:after {
+#navigation header nav ul.nav li a:after {
   content: " >";
   opacity: 0;
   -webkit-transition: all 0.25s linear;
@@ -119,11 +125,11 @@ nav a:hover {
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
 }
-#navigation nav ul.nav li a:hover {
+#navigation header nav ul.nav li a:hover {
   text-decoration: none;
   background: none;
 }
-#navigation nav ul.nav li a.disabled {
+#navigation header nav ul.nav li a.disabled {
   color: #333;
   text-shadow: none;
 }
@@ -196,6 +202,9 @@ article code {
 #content section .main {
   float: left;
   width: 500px;
+}
+#content #home {
+  margin: 0 0 1px 0;
 }
 #content #home h1 {
   margin: 0;
