@@ -195,14 +195,21 @@
 				</ul>
 			</section>
 
-<!-- 			<div id="projects">
+			<!-- 3D Carousel ? -->
+			<section id="projects">
 				<ul>
 					<% for (var i=0;i<projects.length-1;i++) {
 						p = projects[i]; %>
-						<li><%=p.title %></li>
+						<li class="project">
+							<div class="img"><img src="<%=p.image %>" /></div>
+							<h4><%=p.title %></h4>
+							<span class="client"><%=p.client %></span>
+							<span class="url"><%=p.url %></span>
+							<div class="description"><%=p.description %></div>
+						</li>
 					<% } %>
 				</ul>
-			</div> -->
+			</section>
 
 			<section id="contact">
 

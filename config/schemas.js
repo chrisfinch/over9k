@@ -3,6 +3,7 @@
  */
 var md = require("node-markdown").Markdown;
 
+// Posts
 exports.post = new mongoose.Schema({
 	title: String,
 	author: { type: String, default: 'Chris Finch'},
@@ -25,14 +26,15 @@ exports.post.methods.niceBody = function () {
 	return md(this.body);
 };
 
+// Projects
 exports.project = new mongoose.Schema({
 	title: String,
 	client: String,
 	url: String,
 	image: { type: String, default: '/img/projects/default.jpeg' },
-	desc: String
+	description: String
 });
 
-exports.project.methods.img = function (img, cb) {
-	this.image = img;
+exports.project.methods.niceDesc = function () {
+	return md(this.description);
 };
