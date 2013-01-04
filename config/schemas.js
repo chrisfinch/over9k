@@ -36,5 +36,10 @@ exports.project = new mongoose.Schema({
 });
 
 exports.project.methods.niceDesc = function () {
-	return md(this.description);
+	if (this.description) {
+		return md(this.description);
+	} else {
+		return "<p>No Description</p>";
+	}
+
 };

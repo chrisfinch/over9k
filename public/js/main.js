@@ -2,12 +2,21 @@ require.config({
   paths: {
     jquery: 'vendor/jquery-1.8.2.min',
     bootstrap: 'vendor/bootstrap.min',
-    logo: 'logo'
+    use: 'vendor/use.min',
+    modernizr: 'vendor/modernizr-2.6.2.min'
+  },
+
+  use: {
+		"modernizr": {
+			attach: "Modernizr"
+		}
   }
 
 });
 
-require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
+require(["jquery", "logo", "title", "carousel", "bootstrap"], function($, logo, title, carousel) {
+
+	console.log("carousel", typeof carousel);
 
 	var sectionHeight = function (h, cb) {
 
@@ -146,6 +155,11 @@ require(["jquery", "logo", "title", "bootstrap"], function($, logo, title) {
 			$('body').removeClass('business pleasure').addClass($(this).val());
 			$(window).trigger('resize');
 		});
+
+		// Carousel
+
+		carousel();
+
 	});
 
 });

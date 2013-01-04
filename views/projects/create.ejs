@@ -8,7 +8,7 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
-    <form method="post" action="/projects/new" id="new_post">
+    <form method="post" action="/projects/new" id="new_post" enctype="multipart/form-data">
     	<input type="text" name="title" id="title">
       <input type="text" name="client" id="client">
       <input type="text" name="url" id="url">

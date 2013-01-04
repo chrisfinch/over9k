@@ -3,6 +3,8 @@
  * GET posts/create.
  */
 
+var fs = require('fs');
+
 exports.create = function(req, res){
 
 	switch (req.method) {
@@ -14,21 +16,30 @@ exports.create = function(req, res){
 			if (req.files && req.files.image) { // Are they trying to upload an image?
 				var tmp_path = "./" + req.files.image.path;
 				target_path = "./public/uploads/" + req.files.image.name;
+
+				console.log(tmp_path, target_path);
+
 				fs.rename(tmp_path, target_path, function(err) { // Move image file
-					if (err) throw err;
-					fs.unlink(tmp_path, function() {
-						if (err) throw err;
-						req.body.image = target_path.replace('./public', '');
-						var project = new models.project(req.body);
-						project.save(function (err) {
+					if (err) {
+						console.log(err);
+					} else {
+						fs.unlink(tmp_path, function() {
 							if (err) {
-								// ?
+								console.log(err);
 							} else {
-								// Saved!
-								res.redirect('/');
+								req.body.image = target_path.replace('./public', '');
+								var project = new models.project(req.body);
+								project.save(function (err) {
+									if (err) {
+										// ?
+									} else {
+										// Saved!
+										res.redirect('/');
+									}
+								});
 							}
 						});
-					});
+					}
 				});
 			} else {
 				var project = new models.project(req.body);

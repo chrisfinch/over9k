@@ -11,13 +11,16 @@
   transition: none !important;
 }
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+  font-family: 'Gentium Book Basic', serif;
   font-size: 13px;
   line-height: 1.2;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
+}
+body p {
+  font: 400 16px/24px "gentium book basic";
 }
 body .brd {
   height: 1px;
@@ -29,7 +32,7 @@ body .brd {
 }
 body.business {
   background-color: #fff;
-  color: #333;
+  color: #222;
   color: rgba(0, 0, 0, 0.6);
 }
 body.business .brd {
@@ -42,7 +45,8 @@ body.business h4,
 body.business h5,
 body.business h6,
 body.business nav a {
-  font-family: Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 800;
   text-transform: uppercase;
 }
 body.business nav a {
@@ -173,8 +177,12 @@ body.pleasure .switch-selection {
 #navigation {
   width: 210px;
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
+}
+#navigation header {
+  -webkit-transform: translate3d(0, 0, 0);
 }
 #navigation header nav {
   padding: 12px 0 0 0;
@@ -231,6 +239,7 @@ body.pleasure .switch-selection {
   text-shadow: none;
 }
 #navigation #blurb {
+  -webkit-transform: translate3d(0, 0, 0);
   padding: 6px 12px;
   position: fixed;
   bottom: 0;
@@ -260,7 +269,10 @@ article code {
   text-shadow: none;
 }
 #content {
+  -webkit-transform: translate3d(0, 0, 0);
   margin: 0 0 0 230px;
+  position: relative;
+  z-index: 9;
   opacity: 0;
 }
 #content.show {
@@ -389,6 +401,102 @@ article code {
 #content #contact #loader {
   margin: 0 0 0 12px;
   display: none;
+}
+#projects #navigation_prj {
+  position: static;
+  z-index: 2;
+  width: 100%;
+  height: 0;
+}
+#projects #navigation_prj button {
+  font-size: 40px;
+  line-height: 40px;
+  display: block;
+  height: 40px;
+  font-weight: bold;
+  font-family: Helvetica;
+  background: none;
+  border: none;
+  position: absolute;
+  z-index: 2;
+  top: 46%;
+}
+#projects #navigation_prj button#previous {
+  left: 0;
+}
+#projects #navigation_prj button#next {
+  right: 0;
+}
+#projects #prj_center {
+  position: absolute;
+  top: 50%;
+  margin-top: -250px;
+  width: 100%;
+  height: 100%;
+}
+#projects #prj_center #prj_carousel_cont {
+  display: block;
+  position: relative;
+  height: 500px;
+  z-index: 1;
+  -webkit-perspective: 1100px;
+  -moz-perspective: 1100px;
+  -o-perspective: 1100px;
+  perspective: 1100px;
+}
+#projects #prj_center #prj_carousel_cont #project_carousel {
+  margin: 0 auto;
+  padding: 0;
+  width: 700px;
+  height: 500px;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+#projects #prj_center #prj_carousel_cont #project_carousel.panels-backface-invisible .project {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#projects #prj_center #prj_carousel_cont #project_carousel .project {
+  display: block;
+  position: absolute;
+  width: 640px;
+  height: 500px;
+}
+#projects #prj_center #prj_carousel_cont #project_carousel .project .img {
+  overflow: hidden;
+  width: 640px;
+  height: 320px;
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+#projects #prj_center #prj_carousel_cont #project_carousel .project .text {
+  margin: 12px 0 0 0;
+  padding: 12px;
+  background-color: #ffffff;
+  background-color: #fff;
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+#projects #prj_center #prj_carousel_cont #project_carousel .project .text h4 {
+  font-size: 24px;
+}
+#projects #prj_center #prj_carousel_cont #project_carousel .project .text .description p {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-size: 13px;
+  line-height: 1.5;
+}
+#projects #prj_center #prj_carousel_cont.ready #project_carousel {
+  -webkit-transition: -webkit-transform 1s;
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  transition: transform 1s;
 }
 @-moz-keyframes fadeIn {
   0% {

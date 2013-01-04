@@ -11,7 +11,8 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+				<!-- <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'> -->
+				<link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic|Open+Sans:400,800' rel='stylesheet' type='text/css'>
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/normalize.css">
@@ -34,8 +35,8 @@
         	<header>
 	        	<nav>
 	        		<ul id="links" class="nav">
-	        			<li id="logo">        		
-	        				<a href="#home">        				
+	        			<li id="logo">
+	        				<a href="#home">
 	        					<h1>
 			        				<img src="/img/glyph.png" alt="">
 			        			</h1>
@@ -43,7 +44,7 @@
 			        	</li>
 	        			<li><a href="#posts" class="link">Blog</a></li>
 	        			<li><a href="#about" class="link">About</a></li>
-	        			<li><a href="#projects" class="link disabled" title="Coming soon">Projects</a></li>
+	        			<li><a href="#projects" class="link" title="Coming soon">Projects</a></li>
 	        			<li><a href="#contact" class="link">Contact</a></li>
 	        			<li class="switch">
 						<div id="switch">
@@ -52,20 +53,20 @@
 					      <input type="radio" class="switch-input" name="view" value="pleasure" id="pleasure">
 					      <label for="pleasure" class="switch-label switch-label-on">Pleasure</label>
 					      <span class="switch-selection"></span>
-						</div>	        				
+						</div>
 	        			</li>
 	        		</ul>
 	        	</nav>
-        	</header>        	
+        	</header>
         	<div id="blurb">
         		<p><span class="star">*</span> Overninethousand ltd. is Chris Finch, User Interface Engineer and Frontend Web Developer currently working for the BBC in London UK.</p>
         	</div>
         </div>
         <div id="content">
-			
+
 			<section id="home">
 				<h1>Overninethousand</h1>
-			</section>	
+			</section>
 
 			<section id="posts">
 				<ul>
@@ -197,18 +198,28 @@
 
 			<!-- 3D Carousel ? -->
 			<section id="projects">
-				<ul>
-					<% for (var i=0;i<projects.length-1;i++) {
-						p = projects[i]; %>
-						<li class="project">
-							<div class="img"><img src="<%=p.image %>" /></div>
-							<h4><%=p.title %></h4>
-							<span class="client"><%=p.client %></span>
-							<span class="url"><%=p.url %></span>
-							<div class="description"><%=p.description %></div>
-						</li>
-					<% } %>
-				</ul>
+				<div id="navigation_prj">
+				  <button id="previous" data-increment="-1">&lt;</button>
+				  <button id="next" data-increment="1">&gt;</button>
+				</div>
+				<div id="prj_center">
+					<div id="prj_carousel_cont">
+						<ul id="project_carousel">
+							<% for (var i=0;i<projects.length;i++) {
+								p = projects[i]; %>
+								<li class="project">
+									<div class="img"><img src="/uploads/<%=p.image %>" /></div>
+									<div class="text">
+										<h4><%=p.title %></h4>
+										<span class="client"><%=p.client %></span>
+										<span class="url"><%=p.url %></span>
+										<div class="description"><%-p.niceDesc() %></div>
+									</div>
+								</li>
+							<% } %>
+						</ul>
+					</div>
+			  </div>
 			</section>
 
 			<section id="contact">
