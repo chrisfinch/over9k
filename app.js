@@ -115,6 +115,15 @@ var restrict = function (req, res, next) {
     });
   });
 
+  app.get('/logout', function(req, res){
+    if (req.session) {
+      req.session.auth = null;
+      res.clearCookie('auth');
+      req.session.destroy(function() {});
+    }
+    res.redirect('/');
+  });
+
   // ADMIN ======================
   app.get('/admin', restrict, admin.admin);
 
