@@ -86,34 +86,34 @@ exports.createProject = function(req, res){
 	}
 };
 
-// exports.createUser = function(req, res){
+exports.createUser = function(req, res){
 
-// 	var pwd = require('pwd');
+	var pwd = require('pwd');
 
-// 	var user = new models.user();
+	var user = new models.user();
 
-// 	console.log(req);
+	console.log(req);
 
-// 	pwd.hash(req.body.password, function (err, salt, hash) {
+	pwd.hash(req.body.password, function (err, salt, hash) {
 
-// 		if (err) {
-// 			console.log(err);
-// 		}
+		if (err) {
+			console.log(err);
+		}
 
-// 		user.salt = salt;
-// 		user.hash = hash;
-// 		user.username = req.body.username;
-// 		user.save(function (err) {
-// 			if (err) {
-// 				// ?
-// 			} else {
-// 				// Saved!
-// 				res.redirect('/admin');
-// 			}
-// 		});
-// 	});
+		user.salt = salt;
+		user.hash = hash;
+		user.username = req.body.username;
+		user.save(function (err) {
+			if (err) {
+				// ?
+			} else {
+				// Saved!
+				res.redirect('/admin');
+			}
+		});
+	});
 
-// };
+};
 
 exports.loginPage = function (req, res) {
 	res.render('login');

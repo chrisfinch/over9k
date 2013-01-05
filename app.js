@@ -125,9 +125,9 @@ var restrict = function (req, res, next) {
   });
 
   // ADMIN ======================
-  app.get('/admin', restrict, admin.admin);
+  app.get('/admin', admin.admin);
 
-    app.post('/user/new', restrict, admin.createUser);
+    app.post('/user/new', admin.createUser);
 
     // POSTS
     app.post('/posts/new', restrict, admin.createPost);
