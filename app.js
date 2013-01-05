@@ -111,7 +111,8 @@ var restrict = function (req, res, next) {
         });
       } else {
         //res.redirect('login');
-        res.send(err);
+        console.log(err);
+        res.send(err.stack);
       }
     });
   });
