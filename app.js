@@ -111,7 +111,6 @@ var restrict = function (req, res, next) {
         });
       } else {
         //res.redirect('login');
-        console.log(err);
         res.send(err.stack);
       }
     });
