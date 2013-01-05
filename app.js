@@ -110,7 +110,8 @@ var restrict = function (req, res, next) {
           res.redirect('/admin');
         });
       } else {
-        res.redirect('login');
+        //res.redirect('login');
+        res.send(err);
       }
     });
   });
