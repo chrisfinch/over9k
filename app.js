@@ -105,7 +105,7 @@ var s3StreamMiddleware = connectStreamS3({
     accessKeyId     : process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
     awsAccountId    : process.env.AWS_ACCOUNT_ID,
-    region          : amazon.US_STANDARD,
+    region          : amazon.US_EAST_1,
     bucketName      : 'over9k-heroku',
     concurrency     : 2 // number of concurrent uploads to S3 (default: 3)
 });
