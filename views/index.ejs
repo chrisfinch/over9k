@@ -208,11 +208,12 @@
 							<% for (var i=0;i<projects.length;i++) {
 								p = projects[i]; %>
 								<li class="project">
-									<div class="img"><img src="/uploads/<%=p.image %>" /></div>
+									<div class="img"><img src="<%=p.image %>" /></div>
 									<div class="text">
 										<h4><%=p.title %></h4>
-										<span class="client"><%=p.client %></span>
-										<span class="url"><%=p.url %></span>
+										<span class="client">For: <%=p.client %></span>
+										<span class="sep">|</span>
+										<span class="url"><a href="<%=p.url %>"><%=p.url %></a></span>
 										<div class="description"><%-p.niceDesc() %></div>
 									</div>
 								</li>

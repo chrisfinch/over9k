@@ -2,19 +2,43 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">    
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="container">
+      <h1>New Post</h1>
+      <p>Write a new post...</p>
 
-    <form method="post" action="/posts/new" id="new_post" enctype="multipart/form-data">
-    	<input type="text" name="title">
-    	<textarea name="body" id="" cols="30" rows="10"></textarea>
-      <input type="file" name="image">  
-    	<input type="submit" />
-    </form>
+      <form method="post" action="/posts/new" id="new_post" enctype="multipart/form-data" class="form-horizontal">
 
+        <div class="control-group">
+          <label class="control-label" for="title">Title</label>
+          <div class="controls">
+            <input type="text" id="title" name="title" placeholder="Title" class="input-xxlarge">
+          </div>
+        </div>
 
+        <div class="control-group">
+          <label class="control-label" for="body">Body</label>
+          <div class="controls">
+            <textarea name="body" id="body" cols="30" rows="10" placeholder="Body" class="input-xxlarge"></textarea>
+          </div>
+        </div>      	
+      	
+        <div class="control-group">
+          <label class="control-label" for="image">Post image</label>
+          <div class="controls">
+            <input type="file" name="image" id="image">  
+          </div>
+        </div> 
+
+        <div class="control-group">
+          <div class="controls">
+            <input type="submit" class="btn btn-primary" />
+          </div>
+        </div>         
+      	
+      </form>
+    </div>
   </body>
 </html>
