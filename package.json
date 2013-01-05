@@ -16,6 +16,8 @@
     "mongoose": "*",
     "node-markdown": "*",
     "emailjs": "*",
-    "pwd": "*"
+    "pwd": "*",
+    "connect-stream-s3": "*",
+    "awssum": "*"
   }
 }

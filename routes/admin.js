@@ -53,37 +53,44 @@ exports.createPost = function(req, res){
  */
 
 exports.createProject = function(req, res){
-	if (req.files && req.files.image && req.files.image.size > 0) { // Are they trying to upload an image?
-		var tmp_path = "./" + req.files.image.path;
-		target_path = "./public/uploads/" + req.files.image.name;
 
-		console.log(tmp_path, target_path);
+	console.log("gets here");
 
-		fs.rename(tmp_path, target_path, function(err) { // Move image file
-			if (err) {
-				console.log(err);
-			} else {
-				fs.unlink(tmp_path, function() {
-					if (err) {
-						console.log(err);
-					} else {
-						req.body.image = target_path.replace('./public', '');
-						var project = new models.project(req.body);
-						project.save(function (err) {
-							if (err) {
-								// ?
-							} else {
-								// Saved!
-								res.redirect('/');
-							}
-						});
-					}
-				});
-			}
-		});
-	} else {
-		res.send("You must provide an image.");
-	}
+	    for(var key in req.files) {
+        console.log('File "' + key + '" uploaded as : ' + req.files[key].s3ObjectName);
+    }
+
+	// if (req.files && req.files.image && req.files.image.size > 0) { // Are they trying to upload an image?
+	// 	var tmp_path = "./" + req.files.image.path;
+	// 	target_path = "./public/uploads/" + req.files.image.name;
+
+	// 	console.log(tmp_path, target_path);
+
+	// 	fs.rename(tmp_path, target_path, function(err) { // Move image file
+	// 		if (err) {
+	// 			console.log(err);
+	// 		} else {
+	// 			fs.unlink(tmp_path, function() {
+	// 				if (err) {
+	// 					console.log(err);
+	// 				} else {
+	// 					req.body.image = target_path.replace('./public', '');
+	// 					var project = new models.project(req.body);
+	// 					project.save(function (err) {
+	// 						if (err) {
+	// 							// ?
+	// 						} else {
+	// 							// Saved!
+	// 							res.redirect('/');
+	// 						}
+	// 					});
+	// 				}
+	// 			});
+	// 		}
+	// 	});
+	// } else {
+	// 	res.send("You must provide an image.");
+	// }
 };
 
 // exports.createUser = function(req, res){

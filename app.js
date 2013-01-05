@@ -9,7 +9,9 @@ var express = require('express')
   , admin = require('./routes/admin')
   , http = require('http')
   , path = require('path')
-  , pwd = require('pwd');
+  , pwd = require('pwd')
+  , connectStreamS3 = require('connect-stream-s3')
+  , amazon = require('awssum').load('amazon/amazon');
 
 // DATABASE ==============================
 
@@ -91,6 +93,23 @@ var restrict = function (req, res, next) {
   }
 };
 
+// give each uploaded file a unique name (up to you to make sure they are unique, this is an example)
+var uniquifyObjectNames = function(req, res, next) {
+    for(var key in req.files) {
+        req.files[key].s3ObjectName = '' + Math.floor(Math.random()*100000001);
+    }
+};
+
+// set up the connect-stream-s3 middleware
+var s3StreamMiddleware = connectStreamS3({
+    accessKeyId     : process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
+    awsAccountId    : process.env.AWS_ACCOUNT_ID,
+    region          : amazon.US_STANDARD,
+    bucketName      : 'over9k-heroku',
+    concurrency     : 2 // number of concurrent uploads to S3 (default: 3)
+});
+
 // Routes ===================================
 
   app.get('/', routes.index);
@@ -134,7 +153,7 @@ var restrict = function (req, res, next) {
     app.post('/posts/new', restrict, admin.createPost);
 
     // PROJECTS
-    app.post('/projects/new', restrict, admin.createProject);
+    app.post('/projects/new', restrict, uniquifyObjectNames, s3StreamMiddleware, admin.createProject);
 
 
 http.createServer(app).listen(app.get('port'), function(){
