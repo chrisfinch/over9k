@@ -3,6 +3,13 @@
  */
 var md = require("node-markdown").Markdown;
 
+// User
+exports.user = new mongoose.Schema({
+  username: String,
+  salt: String,
+  hash: String
+});
+
 // Posts
 exports.post = new mongoose.Schema({
 	title: String,

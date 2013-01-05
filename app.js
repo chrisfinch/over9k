@@ -5,12 +5,11 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , posts = require('./routes/posts')
-  , projects = require('./routes/projects')
   , contact = require('./routes/contact')
-  , user = require('./routes/user')
+  , admin = require('./routes/admin')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , pwd = require('pwd');
 
 // DATABASE ==============================
 
@@ -70,19 +69,63 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+// Middleware ===================================
 
-// POSTS
-app.get('/posts/new', posts.create);
-app.post('/posts/new', posts.create);
+var authenticate = function (name, pass, fn) {
+  models.user.findOne ({username: name}, function(err, user) {
+    if (!user) return fn(new Error('cannot find user'));
+    pwd.hash(pass, user.salt, function(err, hash){
+      if (err) return fn(err);
+      if (hash == user.hash) return fn(null, user);
+      fn(new Error('invalid password'));
+    });
+  });
+};
 
-// PROJECTS
-app.get('/projects/new', projects.create);
-app.post('/projects/new', projects.create);
+var restrict = function (req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    req.session.error = 'Access denied!';
+    res.redirect('/login');
+  }
+};
 
-// CONTACT
-app.post('/contact', contact.submit);
+// Routes ===================================
+
+  app.get('/', routes.index);
+
+  // CONTACT
+  app.post('/contact', contact.submit);
+
+  // LOGIN ======================
+
+  app.get('/login', admin.loginPage);
+
+  app.post('/user/login', function(req, res){
+    authenticate(req.body.username, req.body.password, function(err, user){
+      if (user) {
+        req.session.regenerate(function(){
+          req.session.user = user;
+          res.redirect('/admin');
+        });
+      } else {
+        res.redirect('login');
+      }
+    });
+  });
+
+  // ADMIN ======================
+  app.get('/admin', restrict, admin.admin);
+
+    app.post('/user/new', restrict, admin.createUser);
+
+    // POSTS
+    app.post('/posts/new', restrict, admin.createPost);
+
+    // PROJECTS
+    app.post('/projects/new', restrict, admin.createProject);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

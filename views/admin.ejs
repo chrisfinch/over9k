@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      
+        <!-- <form method="post" action="/user/new" id="new_user" enctype="multipart/form-data" class="form-horizontal">
+
+          <div class="control-group">
+            <label class="control-label" for="username">Username</label>
+            <div class="controls">
+              <input type="text" id="username" name="username" placeholder="username" class="input-xxlarge">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+              <input type="password" id="password" name="password" placeholder="password" class="input-xxlarge">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <input type="submit" class="btn btn-primary" />
+            </div>
+          </div>         
+          
+        </form> -->
+
+      <div class="row">
+  
+        <h1>New Post</h1>
+        <p>Write a new post...</p>
+
+        <form method="post" action="/posts/new" id="new_post" enctype="multipart/form-data" class="form-horizontal">
+
+          <div class="control-group">
+            <label class="control-label" for="title">Title</label>
+            <div class="controls">
+              <input type="text" id="title" name="title" placeholder="Title" class="input-xxlarge">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="body">Body</label>
+            <div class="controls">
+              <textarea name="body" id="body" cols="30" rows="10" placeholder="Body" class="input-xxlarge"></textarea>
+            </div>
+          </div>        
+          
+          <div class="control-group">
+            <label class="control-label" for="image">Post image</label>
+            <div class="controls">
+              <input type="file" name="image" id="image">  
+            </div>
+          </div> 
+
+          <div class="control-group">
+            <div class="controls">
+              <input type="submit" class="btn btn-primary" />
+            </div>
+          </div>         
+          
+        </form>
+
+      </div>
+
+      <div class="row">
+
+        <h1>New Project</h1>
+        <p>Add a new project</p>
+
+        <form method="post" action="/projects/new" id="new_post" enctype="multipart/form-data" class="form-horizontal">
+
+          <div class="control-group">
+            <label class="control-label" for="title">Title</label>
+            <div class="controls">
+              <input type="text" name="title" id="title" placeholder="Title" class="input-xxlarge">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="Client">Client</label>
+            <div class="controls">
+              <input type="text" name="client" id="client" placeholder="Client" class="input-xxlarge" >
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="url">URL</label>
+            <div class="controls">
+              <input type="text" name="url" id="url" class="input-xxlarge" placeholder="URL">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="image">Image</label>
+            <div class="controls">
+              <input type="file" name="image" id="image" class="input-xxlarge" >
+            </div>
+          </div>        
+
+          <div class="control-group">
+            <label class="control-label" for="description">Description</label>
+            <div class="controls">
+              <textarea name="description" id="description" rows="10" class="input-xxlarge" placeholder="Description"></textarea>
+            </div>
+          </div>          	
+
+          <div class="control-group">
+            <div class="controls">
+              <input type="submit" class="btn btn-primary"/>
+            </div>
+          </div>
+          
+        </form>
+      
+      </div>
+
+    </div>
+  </body>
+</html>

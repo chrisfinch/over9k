@@ -15,6 +15,7 @@
     "less-middleware": "*",
     "mongoose": "*",
     "node-markdown": "*",
-    "emailjs": "*"
+    "emailjs": "*",
+    "pwd": "*"
   }
 }
