@@ -20,6 +20,7 @@ var express = require('express')
 var s3 = knox.createClient({
   key: process.env.AWS_ACCESS_KEY_ID,
   secret: process.env.AWS_SECRET_ACCESS_KEY,
+  region: "us-standard",
   bucket: "over9k-heroku"
 });
 
@@ -107,13 +108,14 @@ var restrict = function (req, res, next) {
 var uniqueFilename = function(req, res, next) {
     for(var key in req.files) {
         var n = req.files[key].name;
-        req.files[key].name = Math.floor(Math.random()*100000001)+'_'+n;
+        req.files[key].name = Math.floor(Math.random()*1000001)+'.'+n.split('.').pop();
     }
+    next();
 };
 
 var s3Middleware = function (req, res, next) {
 
-  if (req.files && req.files.lenght > 0) {
+  if (req.files) {
     for (var key in req.files) {
       var f = req.files[key];
       var s3Headers = {

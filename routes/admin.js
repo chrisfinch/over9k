@@ -54,7 +54,9 @@ exports.createPost = function(req, res){
 
 exports.createProject = function(req, res){
 
-	req.body.image = req.files.path.replace("https", "http");
+	console.log("gets here??", req.files);
+
+	req.body.image = req.files.image.path.replace("https", "http");
 	var project = new models.project(req.body);
 	project.save(function (err) {
 		if (err) {
