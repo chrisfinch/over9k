@@ -11,13 +11,13 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-				<!-- <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'> -->
-				<link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic|Open+Sans:400,800' rel='stylesheet' type='text/css'>
+		<!-- <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'> -->
+		<link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic|Open+Sans:400,800' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel='stylesheet' href='/font/iconic.css' />
         <link rel='stylesheet' href='/css/style.css' />
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -198,10 +198,6 @@
 
 			<!-- 3D Carousel ? -->
 			<section id="projects">
-				<div id="navigation_prj">
-				  <button id="previous" data-increment="-1">&lt;</button>
-				  <button id="next" data-increment="1">&gt;</button>
-				</div>
 				<div id="prj_center">
 					<div id="prj_carousel_cont">
 						<ul id="project_carousel">
@@ -220,7 +216,11 @@
 							<% } %>
 						</ul>
 					</div>
-			  </div>
+			  	</div>
+			  	<div id="navigation_prj">
+			  		<button id="previous" data-increment="-1" class="iconic arrow-left"></button>
+			  		<button id="next" data-increment="1" class="iconic arrow-right"></button>
+				</div>
 			</section>
 
 			<section id="contact">

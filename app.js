@@ -1,7 +1,8 @@
-
 /**
- * Module dependencies.
+ * app.js - WWW>OVER9K.CO.UK
  */
+
+// Module dependencies ==============================
 
 var express = require('express')
   , routes = require('./routes')
@@ -12,14 +13,12 @@ var express = require('express')
   , pwd = require('pwd')
   , knox = require('knox');
 
-  // , connectStreamS3 = require('connect-stream-s3')
-  // , amazon = require('awssum').load('amazon/amazon');
 
-// AMAZON S3
+// AMAZON S3 ==============================
 
 var s3 = knox.createClient({
-  key: process.env.AWS_ACCESS_KEY_ID,
-  secret: process.env.AWS_SECRET_ACCESS_KEY,
+  key: process.env.AWS_ACCESS_KEY_ID || "nokey",
+  secret: process.env.AWS_SECRET_ACCESS_KEY || "nosecret",
   region: "us-standard",
   bucket: "over9k-heroku"
 });
