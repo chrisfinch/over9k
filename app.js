@@ -10,8 +10,18 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , pwd = require('pwd')
-  , connectStreamS3 = require('connect-stream-s3')
-  , amazon = require('awssum').load('amazon/amazon');
+  , knox = require('knox');
+
+  // , connectStreamS3 = require('connect-stream-s3')
+  // , amazon = require('awssum').load('amazon/amazon');
+
+// AMAZON S3
+
+var s3 = knox.createClient({
+  key: process.env.AWS_ACCESS_KEY_ID,
+  secret: process.env.AWS_SECRET_ACCESS_KEY,
+  bucket: "over9k-heroku"
+});
 
 // DATABASE ==============================
 
@@ -94,21 +104,49 @@ var restrict = function (req, res, next) {
 };
 
 // give each uploaded file a unique name (up to you to make sure they are unique, this is an example)
-var uniquifyObjectNames = function(req, res, next) {
+var uniqueFilename = function(req, res, next) {
     for(var key in req.files) {
-        req.files[key].s3ObjectName = '' + Math.floor(Math.random()*100000001);
+        var n = req.files[key].name;
+        req.files[key].name = Math.floor(Math.random()*100000001)+'_'+n;
     }
 };
 
+var s3Middleware = function (req, res, next) {
+
+  if (req.files && req.files.lenght > 0) {
+    for (var key in req.files) {
+      var f = req.files[key];
+      var s3Headers = {
+        'Content-Type': f.type,
+        'x-amz-acl': 'public-read'
+      };
+      s3.putFile(__dirname+'/'+f.path, f.name, s3Headers, function (err, s3response) {
+        if (err) {
+          console.log(err);
+          res.send("File upload failed, check logs..");
+        } else if (s3response.statusCode == 200) {
+          //console.log("done?", s3response.client._httpMessage.url, "=======================================");
+          req.files[key].path = s3response.client._httpMessage.url;
+          next();
+        }
+      });
+
+    }
+  } else {
+    res.send("You must provide an image.");
+  }
+
+};
+
 // set up the connect-stream-s3 middleware
-var s3StreamMiddleware = connectStreamS3({
-    accessKeyId     : process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
-    awsAccountId    : process.env.AWS_ACCOUNT_ID,
-    region          : amazon.US_EAST_1,
-    bucketName      : 'over9k-heroku',
-    concurrency     : 2 // number of concurrent uploads to S3 (default: 3)
-});
+// var s3StreamMiddleware = connectStreamS3({
+//     accessKeyId     : process.env.AWS_ACCESS_KEY_ID,
+//     secretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
+//     awsAccountId    : process.env.AWS_ACCOUNT_ID,
+//     region          : amazon.US_EAST_1,
+//     bucketName      : 'over9k-heroku',
+//     concurrency     : 2 // number of concurrent uploads to S3 (default: 3)
+// });
 
 // Routes ===================================
 
@@ -153,7 +191,7 @@ var s3StreamMiddleware = connectStreamS3({
     app.post('/posts/new', restrict, admin.createPost);
 
     // PROJECTS
-    app.post('/projects/new', restrict, uniquifyObjectNames, s3StreamMiddleware, admin.createProject);
+    app.post('/projects/new', restrict, uniqueFilename, s3Middleware, admin.createProject);
 
 
 http.createServer(app).listen(app.get('port'), function(){
