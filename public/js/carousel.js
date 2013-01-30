@@ -20,13 +20,9 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
       this.rotateFn = 'rotateY';
       this.theta = 360 / this.panelCount;
 
-      console.log(this.panelSize);
-
       // do some trig to figure out how big the carousel
       // is in 3D space
       this.radius = Math.round( ( this.panelSize / 2) / Math.tan( Math.PI / this.panelCount ) );
-
-      console.log(this.panelCount);
 
       for ( i = 0; i < this.panelCount; i++ ) {
         panel = this.element.children[i];

@@ -159,7 +159,10 @@ require(["jquery", "logo", "title", "carousel", "bootstrap"], function($, logo, 
 
 		// Treat for curious folks
 		if (console && console.log) {
-			console.log("No errors here! Interested in how this site works? Visit github at: http://www.github.com/chrisfinch \n\rWant to get in touch? Please use the contact form in the page - Thanks!");
+			var msg = [];
+			msg.push("No errors here! Interested in how this site works? Visit github at: http://github.com/chrisfinch/over9k \n\r");
+			msg.push("Want to get in touch? Please use the contact form in the page - Thanks!");
+			console.log(msg.join(""));
 		}
 
 	});
