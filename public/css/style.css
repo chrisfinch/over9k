@@ -82,6 +82,17 @@ body.business #about ul li.how li.t a {
 body.business #about ul li.how li.s a {
   background-color: #999;
 }
+body.business #project_carousel .text {
+  background-color: #ffffff;
+  background-color: #fff;
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+body.business #navigation_prj button:before {
+  color: #222;
+  color: rgba(0, 0, 0, 0.6);
+}
 body.pleasure {
   background-color: #1D1D1D;
   color: #fff;
@@ -174,8 +185,23 @@ body.pleasure .switch-selection {
   background-image: -o-linear-gradient(top, #e33e6f, #d01e53);
   background-image: linear-gradient(to bottom, #e33e6f, #d01e53);
 }
+body.pleasure #project_carousel .text {
+  background-color: transparent;
+}
+body.pleasure #project_carousel .text span,
+body.pleasure #project_carousel .text p {
+  font-size: 16px !important;
+}
+body.pleasure #project_carousel .text a {
+  color: #d01e53;
+  text-shadow: none;
+}
+body.pleasure #navigation_prj button:before {
+  color: #d01e53;
+  -webkit-filter: drop-shadow(0 0 25px #d01e53);
+}
 #navigation {
-  width: 210px;
+  width: 186px;
   position: fixed;
   z-index: 999;
   top: 0;
@@ -191,16 +217,17 @@ body.pleasure .switch-selection {
   margin: 0;
 }
 #navigation header nav ul.nav li {
-  padding: 12px 0 12px 48px;
+  padding: 12px 0 12px 12px;
 }
 #navigation header nav ul.nav li#logo {
   padding: 0 !important;
 }
 #navigation header nav ul.nav li#logo h1 {
-  width: 210px;
+  width: 186px;
+  margin: 0 0 24px 0;
 }
 #navigation header nav ul.nav li#logo h1 img {
-  margin: 0 0 0 48px;
+  margin: 0 0 0 12px;
   display: block;
 }
 #navigation header nav ul.nav li#logo a:after {
@@ -270,7 +297,7 @@ article code {
 }
 #content {
   -webkit-transform: translate3d(0, 0, 0);
-  margin: 0 0 0 230px;
+  margin: 0 0 0 186px;
   position: relative;
   z-index: 9;
   opacity: 0;
@@ -434,8 +461,6 @@ article code {
   color: rgba(0, 0, 0, 0.8);
 }
 #projects #navigation_prj button:before {
-  color: #222;
-  color: rgba(0, 0, 0, 0.6);
   font-size: 80px;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
@@ -496,11 +521,6 @@ article code {
 #projects #prj_center #prj_carousel_cont #project_carousel .project .text {
   margin: 12px 0 0 0;
   padding: 12px;
-  background-color: #ffffff;
-  background-color: #fff;
-  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }
 #projects #prj_center #prj_carousel_cont #project_carousel .project .text h4 {
   font-size: 24px;
@@ -698,7 +718,7 @@ article code {
 #switch {
   position: relative;
   margin: 40px 0 0 0;
-  height: 40px;
+  height: 36px;
   width: 160px;
   background-color: #333;
   border-radius: 3px;
@@ -710,12 +730,15 @@ article code {
   z-index: 2;
   float: left;
   width: 78px;
-  line-height: 40px;
-  font-size: 14px;
+  line-height: 36px;
   color: rgba(255, 255, 255, 0.35);
   text-align: center;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
   cursor: pointer;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 10px;
 }
 #switch .switch-label-off {
   padding-left: 2px;
@@ -746,7 +769,7 @@ article code {
   top: 2px;
   left: 2px;
   width: 80px;
-  height: 36px;
+  height: 32px;
   border-radius: 3px;
   -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
