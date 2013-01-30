@@ -16,8 +16,6 @@ require.config({
 
 require(["jquery", "logo", "title", "carousel", "bootstrap"], function($, logo, title, carousel) {
 
-	console.log("carousel", typeof carousel);
-
 	var sectionHeight = function (h, cb) {
 
 		$('section').each(function () {
@@ -157,8 +155,12 @@ require(["jquery", "logo", "title", "carousel", "bootstrap"], function($, logo, 
 		});
 
 		// Carousel
-
 		carousel();
+
+		// Treat for curious folks
+		if (console && console.log) {
+			console.log("No errors here! Interested in how this site works? Visit github at: http://www.github.com/chrisfinch \n\rWant to get in touch? Please use the contact form in the page - Thanks!");
+		}
 
 	});
 
