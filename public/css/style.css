@@ -148,6 +148,9 @@ body.pleasure nav .active a {
   color: #3dd6f5 !important;
   text-shadow: 0 0 6px #3dd6f5 !important;
 }
+body.pleasure p > a {
+  color: #d01e53;
+}
 body.pleasure #logo {
   -webkit-animation-name: flicker;
   -webkit-animation-timing-function: linear;
