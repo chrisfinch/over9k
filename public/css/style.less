@@ -665,32 +665,32 @@ article {
 // Responsive ==============================
 
 /* Smartphones (landscape) ----------- */
-@media only screen
-and (min-width : 1280px) {
-/* Styles */
+// @media only screen
+// and (min-width : 1280px) {
+// /* Styles */
 
-	#content {
+// 	#content {
 
-		section {
-			width: 1002px;
-			.post .content.main {
-				width: 802px !important;
-				article {
-					float: left;
-					width: 500px;
-				}
-				.image {
-					float: right;
-					max-width: 298px;
-					overflow: hidden;
-					margin: 0;
-				}
-			}
-		}
+// 		section {
+// 			width: 1002px;
+// 			.post .content.main {
+// 				width: 802px !important;
+// 				article {
+// 					float: left;
+// 					width: 500px;
+// 				}
+// 				.image {
+// 					float: right;
+// 					max-width: 298px;
+// 					overflow: hidden;
+// 					margin: 0;
+// 				}
+// 			}
+// 		}
 
-	}
+// 	}
 
-}
+// }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
@@ -823,20 +823,40 @@ and (orientation : portrait) {
 		font-family: 'Helvetica Neue', Helvetica;
 	}
 
+	// html, body {
+	// 	width: 100%;
+	// 	padding: 0;
+	// }
+
 	#content {
-		padding: 0 24px;
-		width: 700px;
-		margin: 0 auto;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: block;
+		margin: 0;
+		//overflow: scroll;
+		padding: 0;
+		//background-color: red;
 		section {
-			padding: 104px;
+			padding-bottom: 80px;
+			//margin: 0;
+			width: auto;
+			//background-color: green;
+			overflow: hidden;
+			//padding: 104px;
 		}
 	}
 
 	#navigation {
+		position: fixed;
+		top: 0;
 		right: 0;
 		width: 100%;
 		height: 80px;
-		background-color: rgba(29,29,29,0.8);
+		background-color: rgba(29,29,29,0.5);
 		border-bottom: 1px solid #333;
 		z-index: 999;
 		overflow: hidden;
@@ -846,8 +866,6 @@ and (orientation : portrait) {
 		}
 
 		nav {
-			position: absolute;
-			top: 0;
 			left: 160px;
 			height: 80px;
 			padding: 0;
@@ -867,6 +885,7 @@ and (orientation : portrait) {
 						height: 80px;
 						padding: 0;
 						margin: 0;
+						color: #fff;
 						&:after {
 							content: ">";
 							text-align: center;
@@ -878,6 +897,10 @@ and (orientation : portrait) {
 							left: 50%;
 							-webkit-transform: rotate(90deg);
 						}
+					}
+					&.active a {
+						font-size: 20px !important;
+						color: red;
 					}
 				}
 			}

@@ -569,25 +569,6 @@ article code {
   }
 }
 /* Smartphones (landscape) ----------- */
-@media only screen and (min-width: 1280px) {
-  /* Styles */
-  #content section {
-    width: 1002px;
-  }
-  #content section .post .content.main {
-    width: 802px !important;
-  }
-  #content section .post .content.main article {
-    float: left;
-    width: 500px;
-  }
-  #content section .post .content.main .image {
-    float: right;
-    max-width: 298px;
-    overflow: hidden;
-    margin: 0;
-  }
-}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   /* Styles */
@@ -646,18 +627,27 @@ article code {
     font-family: 'Helvetica Neue', Helvetica;
   }
   #content {
-    padding: 0 24px;
-    width: 700px;
-    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
   }
   #content section {
-    padding: 104px;
+    padding-bottom: 80px;
+    width: auto;
+    overflow: hidden;
   }
   #navigation {
+    position: fixed;
+    top: 0;
     right: 0;
     width: 100%;
     height: 80px;
-    background-color: rgba(29, 29, 29, 0.8);
+    background-color: rgba(29, 29, 29, 0.5);
     border-bottom: 1px solid #333;
     z-index: 999;
     overflow: hidden;
@@ -666,8 +656,6 @@ article code {
     -webkit-transform: rotate(90deg) translate3d(-70px, 30px, 0) scale(0.6);
   }
   #navigation nav {
-    position: absolute;
-    top: 0;
     left: 160px;
     height: 80px;
     padding: 0;
@@ -690,6 +678,7 @@ article code {
     height: 80px;
     padding: 0;
     margin: 0;
+    color: #fff;
   }
   #navigation nav ul.nav li a:after {
     content: ">";
@@ -701,6 +690,10 @@ article code {
     top: 26px;
     left: 50%;
     -webkit-transform: rotate(90deg);
+  }
+  #navigation nav ul.nav li.active a {
+    font-size: 20px !important;
+    color: red;
   }
 }
 /* Desktops and laptops ----------- */

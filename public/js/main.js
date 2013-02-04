@@ -14,7 +14,7 @@ require.config({
 
 });
 
-require(["jquery", "logo", "title", "carousel", "bootstrap"], function($, logo, title, carousel) {
+require(["jquery", "logo", "title", "carousel", "use!modernizr", "bootstrap"], function($, logo, title, carousel, Modernizr) {
 
 	var sectionHeight = function (h, cb) {
 
@@ -116,8 +116,9 @@ require(["jquery", "logo", "title", "carousel", "bootstrap"], function($, logo, 
 			sectionHeight(h);
 		});
 
+		var offset = Modernizr.touch ? 81 : 48;
 		$('body').scrollspy({
-			offset: 48
+			offset: offset
 		});
 
 		var $contact = $('#contact form');
@@ -144,6 +145,7 @@ require(["jquery", "logo", "title", "carousel", "bootstrap"], function($, logo, 
 		$('nav li a').on('click', function (event) {
 			event.preventDefault();
 			var t = $($(this).attr('href')).offset().top;
+			if (Modernizr.touch) t = t-80;
 			$("html:not(:animated),body:not(:animated)").animate({'scrollTop':t}, 500);
 		});
 
