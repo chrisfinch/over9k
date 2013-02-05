@@ -53,29 +53,15 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
       // push the carousel back in 3D space,
       // and rotate it
       this.element.style[ transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
-      // var _this = this;
-      // $(this.element).off('webkitTransitionEnd transitionend oTransitionEnd')
-      //   .on('webkitTransitionEnd transitionend oTransitionEnd', function () {
-      //     $(_this.element).find('.project').each(function (i, e) {
-      //       var a = $(e).find('p').text();
-      //       $(e).find('p').empty().html("LOL"+a);
-      //     });
-      //   });
-
     };
 
     var init = function() {
 
       var c = $("#project_carousel");
-      //var cont = $("#prj_carousel_cont");
-
-      //cont.css("height", cont.parent().innerHeight());
-
       var carousel = new Carousel3D( c[0] ),
           navButtons = document.querySelectorAll('#navigation_prj button');
 
       // populate on startup
-      //carousel.panelCount = parseInt( panelCountInput.value, 10);
       carousel.panelCount = c.children().length;
       carousel.modify();
 

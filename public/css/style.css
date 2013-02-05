@@ -520,6 +520,7 @@ article code {
 #projects #prj_center #prj_carousel_cont #project_carousel .project .text {
   margin: 12px 0 0 0;
   padding: 12px;
+  height: 132px;
 }
 #projects #prj_center #prj_carousel_cont #project_carousel .project .text h4 {
   font-size: 24px;
