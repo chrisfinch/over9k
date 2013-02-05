@@ -62,8 +62,6 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
 
     };
 
-
-
     var init = function() {
 
       var c = $("#project_carousel");
@@ -72,22 +70,78 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
       //cont.css("height", cont.parent().innerHeight());
 
       var carousel = new Carousel3D( c[0] ),
-          navButtons = document.querySelectorAll('#navigation_prj button'),
-
-          onNavButtonClick = function( event ){
-            var increment = parseInt( event.target.getAttribute('data-increment') );
-            carousel.rotation += carousel.theta * increment * -1;
-            carousel.transform();
-          };
+          navButtons = document.querySelectorAll('#navigation_prj button');
 
       // populate on startup
       //carousel.panelCount = parseInt( panelCountInput.value, 10);
       carousel.panelCount = c.children().length;
       carousel.modify();
 
+      var onNavButtonClick = function( event ){
+        var increment = parseInt(event.target.getAttribute('data-increment'), 10);
+        carousel.rotation += carousel.theta * increment * -1;
+        carousel.transform();
+      };
+
       for (var i=0; i < 2; i++) {
         navButtons[i].addEventListener( 'click', onNavButtonClick, false);
       }
+
+      var print = function (obj) {
+        var arr = [];
+        for (var key in obj) {
+          arr.push(key);
+        }
+        return arr.join(", ");
+      };
+
+      var touches = [],
+          done = false;
+      c.on("touchmove", function (e) {
+        e.preventDefault();
+        done = false;
+        touches.push(e.originalEvent.touches[0].pageX);
+
+        $(window).on("touchend", function (event) {
+          if (!done) {
+            done = true;
+            var s = touches[0],
+                e = touches[touches.length-2];
+
+            if (Math.abs(s-e) > 60) { // Was it an actual swipe?
+              if (s < e) { // Right
+                carousel.rotation += carousel.theta * -1 * -1;
+              } else { // left
+                carousel.rotation += carousel.theta * 1 * -1;
+              }
+              carousel.transform();
+            }
+            touches = [];
+          }
+
+        });
+
+       //endX.push(event.originalEvent.touches[0].pageX);
+       // $(window).on("touchmove touchend", function (event) {
+       //  event.preventDefault();
+
+       //  var endX = [];
+
+       //  switch (event.type) {
+       //    case "touchmove":
+       //      endX.push(event.originalEvent.touches[0].pageX);
+       //    break;
+
+       //    case "touchend":
+       //      alert(endX.join(", "));
+       //    break;
+       //  }
+
+       //});
+
+      });
+
+
 
       setTimeout( function(){
         $('#prj_carousel_cont').addClass('ready');

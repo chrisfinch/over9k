@@ -52,21 +52,17 @@ body.business nav a {
 body.business nav a {
   color: #333;
   color: rgba(0, 0, 0, 0.6);
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
 }
 body.business nav a:hover {
   color: #000;
   color: #000000;
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 body.business nav a.disabled {
   color: #e1e1e1 !important;
 }
 body.business nav a.disabled:hover {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 body.business #logo {
   -webkit-filter: grayscale(100%);
@@ -642,46 +638,52 @@ article code {
   #content section {
     padding-bottom: 80px;
     width: auto;
+    background-color: transparent !important;
     overflow: hidden;
   }
   #navigation {
     position: fixed;
     top: 0;
     right: 0;
+    left: 0;
     width: 100%;
-    height: 80px;
-    background-color: rgba(29, 29, 29, 0.5);
-    border-bottom: 1px solid #333;
+    height: 76px;
+    background-color: rgba(29, 29, 29, 0.2);
+    border-bottom: 1px solid #ccc;
     z-index: 999;
     overflow: hidden;
-  }
-  #navigation h1 img {
-    -webkit-transform: rotate(90deg) translate3d(-70px, 30px, 0) scale(0.6);
+    padding: 0 0 0 224px;
   }
   #navigation nav {
-    left: 160px;
-    height: 80px;
-    padding: 0;
+    height: 76px;
+    padding: 0 !important;
+    position: static;
   }
   #navigation nav ul.nav {
     padding: 0;
     margin: 0;
+    position: static;
   }
   #navigation nav ul.nav li {
     float: left;
-    padding: 0;
+    padding: 0 !important;
     margin: 0;
-    line-height: 80px;
-    height: 80px;
+    line-height: 76px;
+    height: 76px;
     margin: 0 12px 0 0;
     position: relative;
   }
   #navigation nav ul.nav li a {
-    line-height: 80px;
-    height: 80px;
+    line-height: 76px;
+    height: 76px;
     padding: 0;
     margin: 0;
-    color: #fff;
+    position: relative;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    text-shadow: 1px 1px #aaa;
   }
   #navigation nav ul.nav li a:after {
     content: ">";
@@ -690,13 +692,49 @@ article code {
     display: block;
     width: 20px;
     margin: 0 0 0 -10px;
-    top: 26px;
+    top: 22px;
     left: 50%;
     -webkit-transform: rotate(90deg);
   }
-  #navigation nav ul.nav li.active a {
+  #navigation nav ul.nav li.active a,
+  #navigation nav ul.nav li a:hover {
     font-size: 20px !important;
-    color: red;
+    top: -22px;
+    text-decoration: none !important;
+  }
+  #navigation nav ul.nav li#logo {
+    position: absolute;
+    left: -200px;
+    top: 0;
+    background-color: transparent;
+  }
+  #navigation nav ul.nav li#logo.active a {
+    top: 0;
+  }
+  #navigation nav ul.nav li#logo h1 img {
+    -webkit-transform: rotate(90deg) translate3d(-61px, -24px, 0) scale(1);
+  }
+  #navigation nav ul.nav li.switch {
+    top: 0;
+    position: static;
+    height: 76px;
+    line-height: 76px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  #navigation nav ul.nav li.switch #switch {
+    overflow: hidden;
+    padding: 0;
+    margin: 20px 0;
+    -webkit-transform: scale(0.8);
+  }
+  .business #navigation li a {
+    color: #fff;
+  }
+  .pleasure #navigation {
+    border-color: #d01e53;
   }
 }
 /* Desktops and laptops ----------- */

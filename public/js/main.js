@@ -116,7 +116,7 @@ require(["jquery", "logo", "title", "carousel", "use!modernizr", "bootstrap"], f
 			sectionHeight(h);
 		});
 
-		var offset = Modernizr.touch ? 81 : 48;
+		var offset = Modernizr.touch ? 78 : 48;
 		$('body').scrollspy({
 			offset: offset
 		});
@@ -145,7 +145,7 @@ require(["jquery", "logo", "title", "carousel", "use!modernizr", "bootstrap"], f
 		$('nav li a').on('click', function (event) {
 			event.preventDefault();
 			var t = $($(this).attr('href')).offset().top;
-			if (Modernizr.touch) t = t-80;
+			if (Modernizr.touch) t = t-76;
 			$("html:not(:animated),body:not(:animated)").animate({'scrollTop':t}, 500);
 		});
 
