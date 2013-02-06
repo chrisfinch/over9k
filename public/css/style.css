@@ -505,7 +505,7 @@ article code {
 #projects #navigation_prj {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -40px;
   z-index: 2;
   width: 40px;
   height: 548px;
