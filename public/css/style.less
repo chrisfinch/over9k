@@ -474,13 +474,14 @@ article {
 
 // 3D Projects Carousel =============================
 #projects {
-
 	#prj_center {
 		position: absolute;
 		top: 50%;
-		margin-top: -274px; // 548/2
-    width: 100%;
-    height: 100%;
+		margin-top: -275px; // 548/2
+		left: 50%;
+		margin-left: -345px; // 688/2
+    width: 690px; // 2px border
+    height: 550px; // 2px border
 
 		#prj_carousel_cont {
 			display: block;
@@ -525,7 +526,6 @@ article {
 		      	overflow: hidden;
 		      	width: 640px;
 		      	height: 320px;
-		      	//background-color: #ccc;
 						-moz-box-shadow: 0 0 6px rgba(0,0,0,0.3);
 						-webkit-box-shadow: 0 0 6px rgba(0,0,0,0.3);
 						box-shadow: 0 0 6px rgba(0,0,0,0.3);
@@ -810,7 +810,6 @@ and (orientation : portrait) {
 	// }
 
 	#content {
-
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -818,16 +817,14 @@ and (orientation : portrait) {
 		bottom: 0;
 		display: block;
 		margin: 0;
-		//overflow: scroll;
 		padding: 0;
-		//background-color: red;
 		section {
 			padding-bottom: 80px;
-			//margin: 0;
 			width: auto;
-			background-color: transparent !important;
 			overflow: hidden;
-			//padding: 104px;
+			&#projects #prj_center {
+				margin-top: -315px; // 275+40 - this accounts for the 80px padding at the botton of sections in portrait tablets
+			}
 		}
 	}
 
@@ -838,7 +835,7 @@ and (orientation : portrait) {
 		left: 0;
 		width: 100%;
 		height: 76px;
-		background-color: rgba(29,29,29,0.2);
+		//background-color: rgba(29,29,29,0.2);
 		border-bottom: 1px solid #ccc;
 		z-index: 999;
 		overflow: hidden;
@@ -921,13 +918,28 @@ and (orientation : portrait) {
 		}
 	}
 
-	.business #navigation li a {
-		color: #fff;
+	.business {
+		#navigation {
+			border-color: #333;
+			li a {
+				color: #333;
+			}
+		}
+		section {
+			// For some reason on Mobile Safari wont show body color changes
+			// through the sections so they are declared explicitly here...
+			.trans;
+			background-color: #fff;
+		}
 	}
 
 	.pleasure {
 		#navigation {
 			border-color: #d01e53;
+		}
+		section {
+			.trans;
+			background-color: #1D1D1D;
 		}
 	}
 

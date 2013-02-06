@@ -55,64 +55,66 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
       this.element.style[ transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
     };
 
-    var init = function() {
+    var carousel = {
+      init: function() {
 
-      var c = $("#project_carousel");
-      var carousel = new Carousel3D( c[0] ),
-          navButtons = document.querySelectorAll('#navigation_prj button');
+        var c = $("#project_carousel");
+        var carousel = new Carousel3D( c[0] ),
+            navButtons = document.querySelectorAll('#navigation_prj button');
 
-      // populate on startup
-      carousel.panelCount = c.children().length;
-      carousel.modify();
+        // populate on startup
+        carousel.panelCount = c.children().length;
+        carousel.modify();
 
-      if (Modernizr.touch) { // Touch Interfaces
-        $("#navigation_prj").hide();
-        var touches = [],
+        if (Modernizr.touch) { // Touch Interfaces
+          $("#navigation_prj").hide();
+          var touches = [],
+              done = false;
+          c.on("touchmove", function (e) {
+            e.preventDefault();
             done = false;
-        c.on("touchmove", function (e) {
-          e.preventDefault();
-          done = false;
-          touches.push(e.originalEvent.touches[0].pageY);
+            touches.push(e.originalEvent.touches[0].pageY);
 
-          $(window).on("touchend", function (event) {
-            if (!done) {
-              done = true;
-              var s = touches[0],
-                  e = touches[touches.length-2];
+            $(window).on("touchend", function (event) {
+              if (!done) {
+                done = true;
+                var s = touches[0],
+                    e = touches[touches.length-2];
 
-              if (Math.abs(s-e) > 60) { // Was it an actual swipe?
-                if (s < e) { // Up
-                  carousel.rotation += carousel.theta * -1;
-                } else { // Down
-                  carousel.rotation += carousel.theta * 1;
+                if (Math.abs(s-e) > 60) { // Was it an actual swipe?
+                  if (s < e) { // Up
+                    carousel.rotation += carousel.theta * -1;
+                  } else { // Down
+                    carousel.rotation += carousel.theta * 1;
+                  }
+                  carousel.transform();
                 }
-                carousel.transform();
+                touches = [];
               }
-              touches = [];
-            }
+
+            });
 
           });
+        } else { // Desktop / Mouse interfaces
+          var onNavButtonClick = function( event ){
+            var increment = parseInt(event.target.getAttribute('data-increment'), 10);
+            carousel.rotation += carousel.theta * increment * -1;
+            carousel.transform();
+          };
 
-        });
-      } else { // Desktop / Mouse interfaces
-        var onNavButtonClick = function( event ){
-          var increment = parseInt(event.target.getAttribute('data-increment'), 10);
-          carousel.rotation += carousel.theta * increment * -1;
-          carousel.transform();
-        };
-
-        for (var i=0; i < 2; i++) {
-          navButtons[i].addEventListener( 'click', onNavButtonClick, false);
+          for (var i=0; i < 2; i++) {
+            navButtons[i].addEventListener( 'click', onNavButtonClick, false);
+          }
         }
+
+        setTimeout( function(){
+          $('#prj_carousel_cont').addClass('ready');
+        }, 0);
+
       }
-
-      setTimeout( function(){
-        $('#prj_carousel_cont').addClass('ready');
-      }, 0);
-
     };
 
-    return init;
+    return carousel;
 });
 
 
