@@ -37,9 +37,21 @@ require(["jquery",
 
 	$(function () { // DOM Load
 
+		// Quick, error prone hack to find tablet orientation..
+		Modernizr.addTest("orientation", function () {
+			var w = $(window).width();
+			if (Modernizr.touch && w < 768) {
+				return "portrait";
+			} else if (Modernizr.touch) {
+				return "landscape";
+			} else {
+				return false;
+			}
+		});
+
 		sections.init(function () {
-      logo.start();
-      title.start();
+      logo.init();
+      title.init();
       $('#content').addClass('show');
     });
 

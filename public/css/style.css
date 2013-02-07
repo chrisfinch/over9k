@@ -193,7 +193,7 @@ body.pleasure #project_carousel .text a {
 }
 body.pleasure #navigation_prj button:before {
   color: #d01e53;
-  -webkit-filter: drop-shadow(0 0 2px #d01e53);
+  -webkit-filter: drop-shadow(0 0 25px #d01e53);
 }
 #navigation {
   width: 186px;
@@ -441,6 +441,7 @@ article code {
   margin-left: -345px;
   width: 690px;
   height: 550px;
+  z-index: 1;
 }
 #projects #prj_center #prj_carousel_cont {
   display: block;
@@ -449,7 +450,6 @@ article code {
   height: 500px;
   border: 1px solid #333;
   padding: 24px;
-  z-index: 999;
   -webkit-perspective: 1100px;
   -moz-perspective: 1100px;
   -o-perspective: 1100px;
@@ -460,7 +460,6 @@ article code {
   padding: 0;
   width: 640px;
   height: 500px;
-  z-index: 99;
   position: relative;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -513,9 +512,9 @@ article code {
 #projects #navigation_prj {
   position: absolute;
   top: 0;
-  right: -37px;
+  right: 6px;
   z-index: 2;
-  width: 40px;
+  width: 33px;
   height: 548px;
   margin: 0 auto;
   display: block;
@@ -551,10 +550,10 @@ article code {
   color: rgba(0, 0, 0, 0.8);
 }
 #projects #navigation_prj button#previous {
-  top: 24px;
+  top: 6px;
 }
 #projects #navigation_prj button#next {
-  bottom: 24px;
+  bottom: 6px;
 }
 @-moz-keyframes fadeIn {
   0% {
@@ -632,6 +631,21 @@ article code {
   h6,
   nav a {
     font-family: 'Helvetica Neue', Helvetica;
+  }
+  #navigation .switch {
+    position: static;
+    height: 76px;
+    line-height: 76px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  #navigation .switch #switch {
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    -webkit-transform: scale(0.8);
   }
 }
 /* iPads (portrait) ----------- */
@@ -737,7 +751,6 @@ article code {
     -webkit-transform: rotate(90deg) translate3d(-61px, -24px, 0) scale(1);
   }
   #navigation nav ul.nav li.switch {
-    top: 0;
     position: static;
     height: 76px;
     line-height: 76px;
