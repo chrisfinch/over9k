@@ -260,6 +260,70 @@ body.pleasure #navigation_prj button:before {
   color: #333;
   text-shadow: none;
 }
+#navigation #switch {
+  position: relative;
+  margin: 40px 0 0 0;
+  height: 36px;
+  width: 160px;
+  background-color: #333;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+#navigation #switch .switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 78px;
+  line-height: 36px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+#navigation #switch .switch-label-off {
+  padding-left: 2px;
+}
+#navigation #switch .switch-label-on {
+  padding-right: 2px;
+}
+#navigation #switch .switch-input {
+  display: none;
+}
+#navigation #switch .switch-input:checked + .switch-label {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+}
+#navigation #switch .switch-input:checked + .switch-label-on ~ .switch-selection {
+  left: 78px;
+  /* Note: left: 50% doesn't transition in WebKit */
+
+}
+#navigation #switch .switch-selection {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+  width: 80px;
+  height: 32px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: left 0.15s ease-out;
+  -moz-transition: left 0.15s ease-out;
+  -o-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out;
+  background-color: #999;
+}
 #navigation #blurb {
   -webkit-transform: translate3d(0, 0, 0);
   padding: 6px 12px;
@@ -588,6 +652,25 @@ article code {
   }
 }
 /* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 1280px) {
+  /* Styles */
+  #content section {
+    width: 1002px;
+  }
+  #content section .post .content.main {
+    width: 802px !important;
+  }
+  #content section .post .content.main article {
+    float: left;
+    width: 500px;
+  }
+  #content section .post .content.main .image {
+    float: right;
+    max-width: 298px;
+    overflow: hidden;
+    margin: 0;
+  }
+}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   /* Styles */
@@ -599,6 +682,143 @@ article code {
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width: 320px) {
   /* Styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  nav a {
+    font-family: 'Helvetica Neue', Helvetica;
+  }
+  #content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  #content section {
+    padding-bottom: 80px;
+    width: auto;
+    overflow: hidden;
+  }
+  #content section#projects #prj_center {
+    margin-top: -315px;
+  }
+  #navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    border-bottom: 1px solid #ccc;
+    z-index: 999;
+    overflow: hidden;
+    padding: 0 0 0 224px;
+  }
+  #navigation nav {
+    height: 76px;
+    padding: 0 !important;
+    position: static;
+  }
+  #navigation nav ul.nav {
+    padding: 0;
+    margin: 0;
+    position: static;
+  }
+  #navigation nav ul.nav li {
+    float: left;
+    padding: 0 !important;
+    margin: 0;
+    line-height: 76px;
+    height: 76px;
+    margin: 0 12px 0 0;
+    position: relative;
+  }
+  #navigation nav ul.nav li a {
+    line-height: 76px;
+    height: 76px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    text-shadow: 1px 1px #aaa;
+  }
+  #navigation nav ul.nav li a:after {
+    content: ">";
+    text-align: center;
+    position: absolute;
+    display: block;
+    width: 20px;
+    margin: 0 0 0 -10px;
+    top: 22px;
+    left: 50%;
+    -webkit-transform: rotate(90deg);
+  }
+  #navigation nav ul.nav li.active a,
+  #navigation nav ul.nav li a:hover {
+    font-size: 20px !important;
+    top: -22px;
+    text-decoration: none !important;
+  }
+  #navigation nav ul.nav li#logo {
+    position: absolute;
+    left: -200px;
+    top: 0;
+    background-color: transparent;
+  }
+  #navigation nav ul.nav li#logo.active a {
+    top: 0;
+  }
+  #navigation nav ul.nav li#logo h1 img {
+    -webkit-transform: rotate(90deg) translate3d(-61px, -24px, 0) scale(1);
+  }
+  #navigation nav ul.nav li.switch {
+    position: static;
+    height: 76px;
+    line-height: 76px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  #navigation nav ul.nav li.switch #switch {
+    overflow: hidden;
+    padding: 0;
+    margin: 20px 0;
+    -webkit-transform: scale(0.8);
+  }
+  .business #navigation {
+    border-color: #333;
+  }
+  .business #navigation li a {
+    color: #333;
+  }
+  .business section {
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    background-color: #fff;
+  }
+  .pleasure #navigation {
+    border-color: #d01e53;
+  }
+  .pleasure section {
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    background-color: #1D1D1D;
+  }
 }
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -800,68 +1020,4 @@ article code {
 /* iPhone 4 ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   /* Styles */
-}
-#switch {
-  position: relative;
-  margin: 40px 0 0 0;
-  height: 36px;
-  width: 160px;
-  background-color: #333;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-}
-#switch .switch-label {
-  position: relative;
-  z-index: 2;
-  float: left;
-  width: 78px;
-  line-height: 36px;
-  color: rgba(255, 255, 255, 0.35);
-  text-align: center;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
-  cursor: pointer;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 10px;
-}
-#switch .switch-label-off {
-  padding-left: 2px;
-}
-#switch .switch-label-on {
-  padding-right: 2px;
-}
-#switch .switch-input {
-  display: none;
-}
-#switch .switch-input:checked + .switch-label {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
-  -webkit-transition: 0.15s ease-out;
-  -moz-transition: 0.15s ease-out;
-  -o-transition: 0.15s ease-out;
-  transition: 0.15s ease-out;
-}
-#switch .switch-input:checked + .switch-label-on ~ .switch-selection {
-  left: 78px;
-  /* Note: left: 50% doesn't transition in WebKit */
-
-}
-#switch .switch-selection {
-  display: block;
-  position: absolute;
-  z-index: 1;
-  top: 2px;
-  left: 2px;
-  width: 80px;
-  height: 32px;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
-  -webkit-transition: left 0.15s ease-out;
-  -moz-transition: left 0.15s ease-out;
-  -o-transition: left 0.15s ease-out;
-  transition: left 0.15s ease-out;
-  background-color: #999;
 }
