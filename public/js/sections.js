@@ -7,6 +7,7 @@ define(['jquery'], function($) {
       _this.sectionHeight(h, done);
       $(window).on('resize', function () {
         h = $(window).height();
+        h = h > 700 ? h : 700; // Minimum to avoid thingsgetting too squashed
         _this.sectionHeight(h);
       });
     },

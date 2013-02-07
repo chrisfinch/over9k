@@ -89,11 +89,7 @@ body {
 
 		#project_carousel {
 			.text {
-				background-color: rgba(255,255,255,1);
 				background-color: #fff;
-				-moz-box-shadow: 0 0 6px rgba(0,0,0,0.3);
-				-webkit-box-shadow: 0 0 6px rgba(0,0,0,0.3);
-				box-shadow: 0 0 6px rgba(0,0,0,0.3);
 			}
 		}
 
@@ -187,8 +183,7 @@ body {
 
 		#project_carousel {
 			.text {
-				background-color: transparent;
-
+				background-color: #1D1D1D;
 				span, p {
 					font-size: 16px !important;
 				}
@@ -202,7 +197,7 @@ body {
 
 		#navigation_prj button:before {
 			color: #d01e53;
-			-webkit-filter: drop-shadow(0 0 25px #d01e53);
+			-webkit-filter: drop-shadow(0 0 2px #d01e53);
 		}
 
 	}
@@ -458,6 +453,8 @@ article {
 	}
 
 	#contact {
+		z-index: 99;
+		position: relative;
 		.text {
 			width: 306px;
 			&#message {
@@ -474,6 +471,9 @@ article {
 
 // 3D Projects Carousel =============================
 #projects {
+	overflow-y: hidden;
+	position: relative;
+	z-index: 9;
 	#prj_center {
 		position: absolute;
 		top: 50%;
@@ -535,6 +535,9 @@ article {
 		      	margin: 12px 0 0 0;
 		      	padding: 12px;
 		      	height: 132px;
+						-moz-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+						-webkit-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+						box-shadow: 0 0 6px rgba(0,0,0,0.3);
 						h4 {
 							font-size: 24px;
 						}
@@ -562,7 +565,7 @@ article {
 	#navigation_prj {
 		position: absolute;
 		top: 0;
-		right: -40px;
+		right: -37px; // ew..
 		z-index: 2;
 		width: 40px;
 		height: 548px;
