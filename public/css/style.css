@@ -20,7 +20,7 @@ body {
   transition: all 0.25s linear;
 }
 body p {
-  font: 400 16px/24px "gentium book basic";
+  font: 400 16px/28px "gentium book basic";
 }
 body .brd {
   height: 1px;
@@ -51,11 +51,8 @@ body.business nav a {
 }
 body.business nav a {
   color: #333;
-  color: rgba(0, 0, 0, 0.6);
 }
 body.business nav a:hover {
-  color: #000;
-  color: #000000;
   text-decoration: underline;
 }
 body.business nav a.disabled {
@@ -65,7 +62,7 @@ body.business nav a.disabled:hover {
   text-decoration: none;
 }
 body.business #logo {
-  -webkit-filter: grayscale(100%);
+  -webkit-filter: grayscale(100%) contrast(200%);
 }
 body.business #about ul li.how li a {
   border: 1px solid #333;
@@ -91,8 +88,21 @@ body.pleasure {
   color: rgba(255, 255, 255, 0.6);
   text-shadow: 1px 1px 1px #000;
 }
+body.pleasure ::selection {
+  background: #ff00bf;
+}
+body.pleasure p::selection {
+  color: #fff;
+}
 body.pleasure .brd {
   background-color: #d01e53;
+}
+body.pleasure p {
+  font: 100 16px/28px "Cabin", "gentium book basic";
+}
+body.pleasure span,
+body.pleasure label {
+  font: 100 16px/18px "Cabin", "gentium book basic";
 }
 body.pleasure h1,
 body.pleasure h2,
@@ -101,8 +111,13 @@ body.pleasure h4,
 body.pleasure h5,
 body.pleasure h6,
 body.pleasure nav a {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Lobster', 'Julius Sans One', sans-serif;
   text-transform: uppercase;
+}
+body.pleasure h4,
+body.pleasure h5,
+body.pleasure h6 {
+  text-transform: none;
 }
 body.pleasure h1 {
   color: #5c3df5;
@@ -127,6 +142,9 @@ body.pleasure h5 {
 body.pleasure h6 {
   color: #f53d5c;
   text-shadow: 0 0 6px #f53d5c;
+}
+body.pleasure nav li {
+  border-left-color: #d01e53 !important;
 }
 body.pleasure nav a {
   color: #5cf53d;
@@ -154,7 +172,7 @@ body.pleasure #logo {
 }
 body.pleasure #home h1 {
   color: #5c3df5;
-  text-shadow: 0 0 24px #5c3df5;
+  text-shadow: 2px 2px 1px #d01e53, 0 0 24px #5c3df5;
 }
 body.pleasure #content section {
   border-color: rgba(255, 255, 255, 0.05);
@@ -195,6 +213,17 @@ body.pleasure #navigation_prj button:before {
   color: #d01e53;
   -webkit-filter: drop-shadow(0 0 25px #d01e53);
 }
+body.pleasure textarea,
+body.pleasure input {
+  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  -moz-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  background: #202020;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
+  color: #fff;
+  font: 100 16px/18px "Cabin", "gentium book basic";
+}
 #navigation {
   width: 186px;
   position: fixed;
@@ -212,9 +241,15 @@ body.pleasure #navigation_prj button:before {
   margin: 0;
 }
 #navigation header nav ul.nav li {
-  padding: 12px 0 12px 12px;
+  margin: 0 0 0 -1px;
+  border-left: 1px solid #000;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
 }
 #navigation header nav ul.nav li#logo {
+  border: none !important;
   padding: 0 !important;
 }
 #navigation header nav ul.nav li#logo h1 {
@@ -228,25 +263,15 @@ body.pleasure #navigation_prj button:before {
 #navigation header nav ul.nav li#logo a:after {
   display: none !important;
 }
-#navigation header nav ul.nav li.active a {
-  font-size: 24px;
-}
-#navigation header nav ul.nav li.active a:after {
-  opacity: 1;
+#navigation header nav ul.nav li.active {
+  border-left: 25px solid #000;
 }
 #navigation header nav ul.nav li a {
+  padding: 12px 0 12px 12px;
   font-size: 18px;
   display: block;
   font-size: 20px;
   font-weight: bold;
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
-}
-#navigation header nav ul.nav li a:after {
-  content: " >";
-  opacity: 0;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
@@ -260,7 +285,10 @@ body.pleasure #navigation_prj button:before {
   color: #333;
   text-shadow: none;
 }
-#navigation #switch {
+#navigation .switch {
+  padding: 0 0 0 12px;
+}
+#navigation .switch #switch {
   position: relative;
   margin: 40px 0 0 0;
   height: 36px;
@@ -270,7 +298,7 @@ body.pleasure #navigation_prj button:before {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
 }
-#navigation #switch .switch-label {
+#navigation .switch #switch .switch-label {
   position: relative;
   z-index: 2;
   float: left;
@@ -285,16 +313,16 @@ body.pleasure #navigation_prj button:before {
   text-transform: uppercase;
   font-size: 10px;
 }
-#navigation #switch .switch-label-off {
+#navigation .switch #switch .switch-label-off {
   padding-left: 2px;
 }
-#navigation #switch .switch-label-on {
+#navigation .switch #switch .switch-label-on {
   padding-right: 2px;
 }
-#navigation #switch .switch-input {
+#navigation .switch #switch .switch-input {
   display: none;
 }
-#navigation #switch .switch-input:checked + .switch-label {
+#navigation .switch #switch .switch-input:checked + .switch-label {
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px rgba(255, 255, 255, 0.25);
   -webkit-transition: 0.15s ease-out;
@@ -302,12 +330,12 @@ body.pleasure #navigation_prj button:before {
   -o-transition: 0.15s ease-out;
   transition: 0.15s ease-out;
 }
-#navigation #switch .switch-input:checked + .switch-label-on ~ .switch-selection {
+#navigation .switch #switch .switch-input:checked + .switch-label-on ~ .switch-selection {
   left: 78px;
   /* Note: left: 50% doesn't transition in WebKit */
 
 }
-#navigation #switch .switch-selection {
+#navigation .switch #switch .switch-selection {
   display: block;
   position: absolute;
   z-index: 1;
