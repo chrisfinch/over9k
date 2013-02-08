@@ -28,8 +28,11 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
 				var s = parseInt(t.clone.css('font-size'), 10);
 				t.clone.css('font-size', s+1);
 			}
-
-			t.$el.show().css('font-size', parseInt(t.clone.css('font-size'), 10));
+			var size = parseInt(t.clone.css('font-size'), 10);
+			t.$el.show().css({
+				'font-size': size,
+				'line-height': size
+			});
 			t.clone.remove();
 			delete t.clone;
 			t.position();
