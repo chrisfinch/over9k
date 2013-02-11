@@ -734,6 +734,12 @@ article code {
     width: auto;
     overflow: hidden;
   }
+  #content section .main,
+  #content section#about ul li .main .type {
+    float: none;
+    width: auto;
+    display: block;
+  }
   #content section#projects #prj_center {
     margin-top: -315px;
   }
@@ -743,11 +749,12 @@ article code {
     right: 0;
     left: 0;
     width: 100%;
-    height: 76px;
+    height: 68px;
     border-bottom: 1px solid #ccc;
     z-index: 999;
     overflow: hidden;
-    padding: 0 0 0 224px;
+    padding: 0 0 0 24px;
+    background-color: #1D1D1D;
   }
   #navigation nav {
     height: 76px;
@@ -765,8 +772,9 @@ article code {
     margin: 0;
     line-height: 76px;
     height: 76px;
-    margin: 0 12px 0 0;
+    margin: 0 6px 0 0;
     position: relative;
+    border-left: none !important;
   }
   #navigation nav ul.nav li a {
     line-height: 76px;
@@ -779,35 +787,24 @@ article code {
     -o-transition: all 0.25s linear;
     transition: all 0.25s linear;
     text-shadow: 1px 1px #aaa;
-  }
-  #navigation nav ul.nav li a:after {
-    content: ">";
-    text-align: center;
-    position: absolute;
-    display: block;
-    width: 20px;
-    margin: 0 0 0 -10px;
-    top: 22px;
-    left: 50%;
-    -webkit-transform: rotate(90deg);
+    font-size: 14px !important;
   }
   #navigation nav ul.nav li.active a,
   #navigation nav ul.nav li a:hover {
-    font-size: 20px !important;
-    top: -22px;
     text-decoration: none !important;
   }
   #navigation nav ul.nav li#logo {
     position: absolute;
-    left: -200px;
+    left: 14px;
     top: 0;
     background-color: transparent;
+    margin: 0;
   }
   #navigation nav ul.nav li#logo.active a {
     top: 0;
   }
   #navigation nav ul.nav li#logo h1 img {
-    -webkit-transform: rotate(90deg) translate3d(-61px, -24px, 0) scale(1);
+    -webkit-transform: translate3d(-86px, -78px, 0) scale(0.3);
   }
   #navigation nav ul.nav li.switch {
     position: static;

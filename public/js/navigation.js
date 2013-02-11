@@ -20,7 +20,11 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
       $('nav li a').on('click', function (event) {
         event.preventDefault();
         var t = $($(this).attr('href')).offset().top;
-        if (Modernizr.orientation == "portrait") t = t-76;
+        if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "tablet") { // Tablet
+            t = t-76;
+        } else if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "phone") { // Phone
+            t = t-68;
+        }
         $("html:not(:animated),body:not(:animated)").animate({'scrollTop':t}, 500);
       });
     }

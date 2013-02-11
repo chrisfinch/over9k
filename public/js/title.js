@@ -8,7 +8,6 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
 	var title = {
 		$cont: $('#content'),
 		$el: $('#home h1'),
-		margin: Modernizr.orientation == "portrait" ? 48 : 278, // 230 for nav + 24px margin of error
 
 		/**
 		 * Using a while loop; clone the title and increase the clones
@@ -53,7 +52,9 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
 		 * the window resize event
 		 */
 		init: function () {
+			//alert(Modernizr.orientation);
 			var _this = this;
+			_this.margin = Modernizr.orientation == "portrait" ? 48 : 278; // 230 for nav + 24px margin of error
 			_this.resize($(window).width()-_this.margin);
 			$(window).on('resize', function () {
 				_this.resize($(window).width()-_this.margin);

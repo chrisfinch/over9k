@@ -49,6 +49,18 @@ require(["jquery",
 			}
 		});
 
+		// Quick, error prone hack to find portrait display device
+		Modernizr.addTest("portrait_device", function () {
+			var w = $(window).width();
+			if (Modernizr.orientation == "portrait" && w <= 320) {
+				return "phone";
+			} else if (Modernizr.orientation == "portrait" && w <= 1024 && w >= 768) {
+				return "tablet";
+			} else {
+				return false;
+			}
+		});
+
 		sections.init(function () {
       logo.init();
       title.init();
