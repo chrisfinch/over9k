@@ -49,6 +49,15 @@ body.business nav a {
   font-weight: 800;
   text-transform: uppercase;
 }
+body.business #home h1 {
+  color: #3ea9f5;
+}
+body.business #home h1 .curly {
+  color: #000;
+}
+body.business h3 {
+  color: #3ea9f5;
+}
 body.business nav a {
   color: #333;
 }
@@ -60,6 +69,12 @@ body.business nav a.disabled {
 }
 body.business nav a.disabled:hover {
   text-decoration: none;
+}
+body.business nav .active a {
+  color: #3ea9f5;
+}
+body.business nav li {
+  border-left-color: #3ea9f5 !important;
 }
 body.business #logo {
   -webkit-filter: grayscale(100%) contrast(200%);
@@ -276,6 +291,7 @@ body.pleasure input {
   -moz-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
+  text-transform: capitalize;
 }
 #navigation header nav ul.nav li a:hover {
   text-decoration: none;
@@ -388,6 +404,12 @@ article code {
   position: relative;
   z-index: 9;
   opacity: 0;
+  overflow: hidden;
+}
+#content #frame {
+  position: absolute;
+  top: 0;
+  display: block;
 }
 #content.show {
   -moz-animation-name: fadeIn;
@@ -540,12 +562,19 @@ article code {
   position: relative;
   width: 640px;
   height: 500px;
-  border: 1px solid #333;
+  border: 1px solid #ccc;
   padding: 24px;
   -webkit-perspective: 1100px;
   -moz-perspective: 1100px;
   -o-perspective: 1100px;
   perspective: 1100px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 3px 3px 20px #919191;
+  -webkit-box-shadow: 3px 3px 20px #919191;
+  box-shadow: 0 0 6px #919191 inset;
+  overflow: hidden;
 }
 #projects #prj_center #prj_carousel_cont #project_carousel {
   margin: 0;
