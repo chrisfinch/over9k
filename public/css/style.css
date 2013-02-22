@@ -46,8 +46,8 @@ body.business h5,
 body.business h6,
 body.business nav a {
   font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-weight: 100;
+  text-transform: capitalize;
 }
 body.business #home h1 {
   color: #3ea9f5;
