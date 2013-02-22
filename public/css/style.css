@@ -38,6 +38,9 @@ body.business {
 body.business .brd {
   background-color: #333;
 }
+body.business #navigation {
+  border-top-color: #333;
+}
 body.business h1,
 body.business h2,
 body.business h3,
@@ -77,7 +80,7 @@ body.business nav li {
   border-left-color: #3ea9f5 !important;
 }
 body.business #logo {
-  -webkit-filter: grayscale(100%) contrast(200%);
+  -webkit-filter: brightness(100%) contrast(1000%) blur(0px) drop-shadow(0 0 12px #000000);
 }
 body.business #about ul li.how li a {
   border: 1px solid #333;
@@ -111,6 +114,9 @@ body.pleasure p::selection {
 }
 body.pleasure .brd {
   background-color: #d01e53;
+}
+body.pleasure #navigation {
+  border-top-color: #d01e53;
 }
 body.pleasure p {
   font: 100 16px/28px "Cabin", "gentium book basic";
@@ -248,6 +254,9 @@ body.pleasure input {
   z-index: 999;
   top: 0;
   left: 0;
+  bottom: 0;
+  border-top: 1px solid #121212;
+  background-color: #121212;
 }
 #navigation header {
   -webkit-transform: translate3d(0, 0, 0);
@@ -270,12 +279,15 @@ body.pleasure input {
   border: none !important;
   padding: 0 !important;
 }
+#navigation header nav ul.nav li#logo a {
+  padding: 12px 0;
+}
 #navigation header nav ul.nav li#logo h1 {
   width: 186px;
   margin: 0 0 24px 0;
 }
 #navigation header nav ul.nav li#logo h1 img {
-  margin: 0 0 0 12px;
+  margin: 0 auto;
   display: block;
 }
 #navigation header nav ul.nav li#logo a:after {
@@ -304,78 +316,11 @@ body.pleasure input {
   color: #333;
   text-shadow: none;
 }
-#navigation .switch {
-  padding: 0 0 0 12px;
-}
-#navigation .switch #switch {
-  position: relative;
-  margin: 40px 0 0 0;
-  height: 36px;
-  width: 160px;
-  background-color: #333;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-}
-#navigation .switch #switch .switch-label {
-  position: relative;
-  z-index: 2;
-  float: left;
-  width: 78px;
-  line-height: 36px;
-  color: rgba(255, 255, 255, 0.35);
-  text-align: center;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
-  cursor: pointer;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 10px;
-}
-#navigation .switch #switch .switch-label-off {
-  padding-left: 2px;
-}
-#navigation .switch #switch .switch-label-on {
-  padding-right: 2px;
-}
-#navigation .switch #switch .switch-input {
-  display: none;
-}
-#navigation .switch #switch .switch-input:checked + .switch-label {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
-  -webkit-transition: 0.15s ease-out;
-  -moz-transition: 0.15s ease-out;
-  -o-transition: 0.15s ease-out;
-  transition: 0.15s ease-out;
-}
-#navigation .switch #switch .switch-input:checked + .switch-label-on ~ .switch-selection {
-  left: 2px;
-  /* Note: left: 50% doesn't transition in WebKit */
-
-}
-#navigation .switch #switch .switch-selection {
-  display: block;
-  position: absolute;
-  z-index: 1;
-  top: 2px;
-  left: 78px;
-  width: 80px;
-  height: 32px;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
-  -webkit-transition: left 0.15s ease-out;
-  -moz-transition: left 0.15s ease-out;
-  -o-transition: left 0.15s ease-out;
-  transition: left 0.15s ease-out;
-  background-color: #999;
-}
 #navigation #blurb {
   -webkit-transform: translate3d(0, 0, 0);
-  padding: 6px 12px;
-  position: fixed;
-  bottom: 0;
+  padding: 6px 16px;
+  position: absolute;
+  bottom: 44px;
   left: 0;
   width: 162px;
   opacity: 0.4;
@@ -396,6 +341,73 @@ body.pleasure input {
   margin: 0;
   font-size: 12px;
   line-height: 16px;
+  color: #fff;
+}
+#navigation #switch {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  margin: 0 0 0 -80px;
+  height: 36px;
+  width: 160px;
+  background-color: #333;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+#navigation #switch .switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 78px;
+  line-height: 36px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+#navigation #switch .switch-label-off {
+  padding-left: 2px;
+}
+#navigation #switch .switch-label-on {
+  padding-right: 2px;
+}
+#navigation #switch .switch-input {
+  display: none;
+}
+#navigation #switch .switch-input:checked + .switch-label {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+}
+#navigation #switch .switch-input:checked + .switch-label-on ~ .switch-selection {
+  left: 2px;
+  /* Note: left: 50% doesn't transition in WebKit */
+
+}
+#navigation #switch .switch-selection {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 78px;
+  width: 80px;
+  height: 32px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: left 0.15s ease-out;
+  -moz-transition: left 0.15s ease-out;
+  -o-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out;
+  background-color: #999;
 }
 article pre,
 article code {
