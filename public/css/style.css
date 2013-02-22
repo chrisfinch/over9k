@@ -189,6 +189,9 @@ body.pleasure #home h1 {
   color: #5c3df5;
   text-shadow: 2px 2px 1px #d01e53, 0 0 24px #5c3df5;
 }
+body.pleasure #home h1 .curly {
+  display: none;
+}
 body.pleasure #content section {
   border-color: rgba(255, 255, 255, 0.05);
   border-color: #d01e53;
@@ -347,7 +350,7 @@ body.pleasure input {
   transition: 0.15s ease-out;
 }
 #navigation .switch #switch .switch-input:checked + .switch-label-on ~ .switch-selection {
-  left: 78px;
+  left: 2px;
   /* Note: left: 50% doesn't transition in WebKit */
 
 }
@@ -356,7 +359,7 @@ body.pleasure input {
   position: absolute;
   z-index: 1;
   top: 2px;
-  left: 2px;
+  left: 78px;
   width: 80px;
   height: 32px;
   border-radius: 3px;

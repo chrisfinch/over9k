@@ -186,6 +186,9 @@ body {
 		#home h1 {
 			color: hsl( 250, 90%, 60% );
 			text-shadow: 2px 2px 1px #d01e53, 0 0 24px hsl( 250, 90%, 60% );
+			.curly {
+				display: none;
+			}
 		}
 
 		#content section {
@@ -393,7 +396,7 @@ body {
 				transition: 0.15s ease-out;
 			}
 			.switch-input:checked + .switch-label-on ~ .switch-selection {
-				left: 78px;
+				left: 2px;
 				/* Note: left: 50% doesn't transition in WebKit */
 			}
 
@@ -402,7 +405,7 @@ body {
 				position: absolute;
 				z-index: 1;
 				top: 2px;
-				left: 2px;
+				left: 78px;
 				width: 80px;
 				height: 32px;
 				border-radius: 3px;
