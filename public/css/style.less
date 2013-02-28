@@ -124,6 +124,28 @@ body {
 			color: #222;
 			color: rgba(0,0,0,0.6);
 		}
+
+		.post h3.title {
+			&:before {
+				content: "{ ";
+				color: #000;
+			}
+			&:after {
+				content: " }";
+				color: #000;
+			}
+		}
+
+		h2 {
+			&:before {
+				content: "{ ";
+				color: #3ea9f5;
+			}
+			&:after {
+				content: " }";
+				color: #3ea9f5;
+			}
+		}
 	}
 
 	&.pleasure {
@@ -541,7 +563,7 @@ article {
 				font-size: 16px;
 			}
 			.navigation {
-
+				margin: 0 12px 0 0;
 			}
 		}
 

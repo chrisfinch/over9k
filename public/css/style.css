@@ -19,7 +19,9 @@ body {
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
 }
-body p {
+body p,
+body .post ul li,
+body .post span {
   font: 400 16px/28px "gentium book basic";
 }
 body .brd {
@@ -104,6 +106,22 @@ body.business #navigation_prj button:before {
   color: #222;
   color: rgba(0, 0, 0, 0.6);
 }
+body.business .post h3.title:before {
+  content: "{ ";
+  color: #000;
+}
+body.business .post h3.title:after {
+  content: " }";
+  color: #000;
+}
+body.business h2:before {
+  content: "{ ";
+  color: #3ea9f5;
+}
+body.business h2:after {
+  content: " }";
+  color: #3ea9f5;
+}
 body.pleasure {
   background-color: #1D1D1D;
   color: #fff;
@@ -122,7 +140,9 @@ body.pleasure .brd {
 body.pleasure #navigation {
   border-top-color: #d01e53;
 }
-body.pleasure p {
+body.pleasure p,
+body.pleasure .post ul li,
+body.pleasure .post span {
   font: 100 16px/28px "Cabin", "gentium book basic";
 }
 body.pleasure span,
@@ -487,6 +507,9 @@ article code {
 #content #posts nav span,
 #content #posts nav a {
   font-size: 16px;
+}
+#content #posts nav .navigation {
+  margin: 0 12px 0 0;
 }
 #content #posts #postFrame {
   position: absolute;
