@@ -114,11 +114,13 @@ body.business .post h3.title:after {
   content: " }";
   color: #000;
 }
-body.business h2:before {
+body.business h2:before,
+body.business .project h4:before {
   content: "{ ";
   color: #3ea9f5;
 }
-body.business h2:after {
+body.business h2:after,
+body.business .project h4:after {
   content: " }";
   color: #3ea9f5;
 }
@@ -640,6 +642,7 @@ article code {
   width: 640px;
   height: 500px;
   position: relative;
+  top: 3px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
