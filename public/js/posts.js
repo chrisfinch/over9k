@@ -32,6 +32,8 @@ define(["jquery"], function ($) {
 
         counter = 1;
 
+        $el.height($curr_post.height()+72);
+
         $.getJSON("/posts/list", function (data) {
           total = data.length;
           list = data;

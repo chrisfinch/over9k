@@ -126,7 +126,10 @@ body.pleasure p {
   font: 100 16px/28px "Cabin", "gentium book basic";
 }
 body.pleasure span,
-body.pleasure label {
+body.pleasure label,
+body.pleasure #blurb p,
+body.pleasure #posts nav span,
+body.pleasure #posts nav a {
   font: 100 16px/18px "Cabin", "gentium book basic";
 }
 body.pleasure h1,
