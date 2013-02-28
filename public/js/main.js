@@ -32,8 +32,9 @@ require(["jquery",
 	"contact",
 	"sections",
 	"navigation",
+	"posts",
 	"use!modernizr",
-	"bootstrap"], function($, logo, title, carousel, contact, sections, navigation, Modernizr) {
+	"bootstrap"], function($, logo, title, carousel, contact, sections, navigation, posts, Modernizr) {
 
 	$(function () { // DOM Load
 
@@ -68,6 +69,8 @@ require(["jquery",
     });
 
 		navigation.init();
+
+		posts.init();
 
 		carousel.init();
 

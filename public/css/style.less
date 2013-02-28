@@ -49,7 +49,7 @@ body {
 		#navigation {
 			border-top-color: #333;
 		}
-		h1, h2, h3, h4, h5, h6, nav a {
+		h1, h2, h3, h4, h5, h6, nav a, nav span, #blurb p {
 			font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
 			font-weight: 100;
 			//text-transform: uppercase;
@@ -63,7 +63,7 @@ body {
 			}
 		}
 
-		h3 {
+		h3, #posts nav a {
 			color: #3ea9f5;
 		}
 
@@ -73,6 +73,7 @@ body {
 				&:hover {
 					// color: #000;
 					// color: rgba(0,0,0,1);
+					color: #fff;
 					text-decoration: underline;
 				}
 				&.disabled {
@@ -371,7 +372,7 @@ body {
 		bottom: 44px;
 		left: 0;
 		width: 162px;
-		opacity:0.4;
+		opacity:0.2;
 		.trans;
 
 		&:hover {
@@ -530,13 +531,37 @@ article {
 	}
 
 	#posts {
-		ul {
-			margin: 0;
+
+		nav {
+			float: left;
+			height: 23px;
+			border-bottom: 1px solid #ccc;
+			line-height: 23px;
+			span, a {
+				font-size: 16px;
+			}
+			.navigation {
+
+			}
+		}
+
+		#postFrame {
+			position: absolute;
+			top: 48px;
+			left: 24px;
+			height: 100%;
 		}
 
 		.post {
+			-webkit-transition: left 0.5s ease-in-out;
+			   -moz-transition: left 0.5s ease-in-out;
+			     -o-transition: left 0.5s ease-in-out;
+							transition: left 0.5s ease-in-out;
 			display: block;
 			margin: 0 0 24px 0;
+			position: absolute;
+			top: 0;
+			padding: 12px 0 0 0;
 			.date {
 				h4 {
 					line-height: 40px;
@@ -644,20 +669,20 @@ article {
 		  position: relative;
 		  width: 640px;
 		  height: 500px;
-	    border: 1px solid #ccc;
-	    padding: 24px;
+	    //border: 1px solid #ccc;
+	    padding: 0 24px;
 		  -webkit-perspective: 1100px;
 		     -moz-perspective: 1100px;
 		       -o-perspective: 1100px;
 		          perspective: 1100px;
 
-			-webkit-border-radius: 3px;
-			   -moz-border-radius: 3px;
-							border-radius: 3px;
+			// -webkit-border-radius: 3px;
+			//    -moz-border-radius: 3px;
+			// 				border-radius: 3px;
 
-			-moz-box-shadow: 3px 3px 20px #919191;
-			-webkit-box-shadow: 3px 3px 20px #919191;
-			box-shadow: 0 0 6px #919191 inset;
+			// -moz-box-shadow: 3px 3px 20px #919191;
+			// -webkit-box-shadow: 3px 3px 20px #919191;
+			// box-shadow: 0 0 6px #919191 inset;
 
 		  overflow: hidden;
 

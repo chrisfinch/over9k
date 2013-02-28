@@ -93,28 +93,34 @@
 
 			<!-- BLOG POSTS -->
 			<section id="posts">
-				<ul>
-					<% for (var i=0;i<=posts.length-1;i++) {
-						p = posts[i]; %>
-						<li class="post clearfix">
-							<div class="date side">
-								<h4><%=p.niceDate() %></h4>
+				<nav>
+					<span class="navigation">
+						<a href="#" id="prev">&lt;Prev</a>
+						<span class="sep"> | </span>
+						<a href="#" id="next">Next&gt;</a>
+					</span>
+					<span class="indicator">Post <span class="current">1</span>/<span class="total"><%=posts.length %></span></span>
+				</nav>
+				<div id="postFrame">
+					<% var p = posts[0]; %>
+					<div class="post clearfix" data-id="<%= p._id %>">
+						<div class="date side">
+							<h4><%=p.niceDate() %></h4>
 							</div>
-							<div class="content main">
-								<header>
-									<h3 class="title"><%=p.title %></h3>
-									<h4>by <%=p.author %></h4>
-								</header>
-								<% if (p.image) { %>
-									<div class="image"><img src="<%=p.image %>" /></div>
-								<% } %>
-								<article>
-									<%-p.niceBody() %>
-								</article>
-							</div>
-						</li>
-					<% } %>
-				</ul>
+						<div class="content main">
+							<header>
+								<h3 class="title"><%=p.title %></h3>
+								<h4>by <%=p.author %></h4>
+							</header>
+							<% if (p.image) { %>
+								<div class="image"><img src="<%=p.image %>" /></div>
+							<% } %>
+							<article>
+								<%-p.niceBody() %>
+							</article>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<!-- ABOUT SECTION -->

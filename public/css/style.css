@@ -47,7 +47,9 @@ body.business h3,
 body.business h4,
 body.business h5,
 body.business h6,
-body.business nav a {
+body.business nav a,
+body.business nav span,
+body.business #blurb p {
   font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
   font-weight: 100;
   text-transform: capitalize;
@@ -58,13 +60,15 @@ body.business #home h1 {
 body.business #home h1 .curly {
   color: #000;
 }
-body.business h3 {
+body.business h3,
+body.business #posts nav a {
   color: #3ea9f5;
 }
 body.business nav a {
   color: #333;
 }
 body.business nav a:hover {
+  color: #fff;
   text-decoration: underline;
 }
 body.business nav a.disabled {
@@ -323,7 +327,7 @@ body.pleasure input {
   bottom: 44px;
   left: 0;
   width: 162px;
-  opacity: 0.4;
+  opacity: 0.2;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
@@ -471,12 +475,32 @@ article code {
   float: left;
   position: absolute;
 }
-#content #posts ul {
-  margin: 0;
+#content #posts nav {
+  float: left;
+  height: 23px;
+  border-bottom: 1px solid #ccc;
+  line-height: 23px;
+}
+#content #posts nav span,
+#content #posts nav a {
+  font-size: 16px;
+}
+#content #posts #postFrame {
+  position: absolute;
+  top: 48px;
+  left: 24px;
+  height: 100%;
 }
 #content #posts .post {
+  -webkit-transition: left 0.5s ease-in-out;
+  -moz-transition: left 0.5s ease-in-out;
+  -o-transition: left 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
   display: block;
   margin: 0 0 24px 0;
+  position: absolute;
+  top: 0;
+  padding: 12px 0 0 0;
 }
 #content #posts .post .date h4 {
   line-height: 40px;
@@ -577,18 +601,11 @@ article code {
   position: relative;
   width: 640px;
   height: 500px;
-  border: 1px solid #ccc;
-  padding: 24px;
+  padding: 0 24px;
   -webkit-perspective: 1100px;
   -moz-perspective: 1100px;
   -o-perspective: 1100px;
   perspective: 1100px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: 3px 3px 20px #919191;
-  -webkit-box-shadow: 3px 3px 20px #919191;
-  box-shadow: 0 0 6px #919191 inset;
   overflow: hidden;
 }
 #projects #prj_center #prj_carousel_cont #project_carousel {

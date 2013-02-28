@@ -1,18 +1,18 @@
 /**
- * app.js - WWW>OVER9K.CO.UK
+ * app.js - WWW.OVER9K.CO.UK
  */
 
 // Module dependencies ==============================
 
-var express = require('express')
-  , routes = require('./routes')
-  , contact = require('./routes/contact')
-  , admin = require('./routes/admin')
-  , http = require('http')
-  , path = require('path')
-  , pwd = require('pwd')
-  , knox = require('knox');
-
+var express = require('express'),
+    routes = require('./routes'),
+    contact = require('./routes/contact'),
+    posts = require('./routes/posts'),
+    admin = require('./routes/admin'),
+    http = require('http'),
+    path = require('path'),
+    pwd = require('pwd'),
+    knox = require('knox');
 
 // AMAZON S3 ==============================
 
@@ -47,7 +47,7 @@ var s3 = knox.createClient({
   schemas = require('./config/schemas');
   models = require('./config/models');
 
-// EMAIL =================================
+  // EMAIL =================================
 
   emailjs = require('emailjs');
 
@@ -139,19 +139,13 @@ var s3Middleware = function (req, res, next) {
 
 };
 
-// set up the connect-stream-s3 middleware
-// var s3StreamMiddleware = connectStreamS3({
-//     accessKeyId     : process.env.AWS_ACCESS_KEY_ID,
-//     secretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
-//     awsAccountId    : process.env.AWS_ACCOUNT_ID,
-//     region          : amazon.US_EAST_1,
-//     bucketName      : 'over9k-heroku',
-//     concurrency     : 2 // number of concurrent uploads to S3 (default: 3)
-// });
-
 // Routes ===================================
 
   app.get('/', routes.index);
+
+  // POSTS
+  app.get('/posts/list', posts.list);
+  app.get('/posts/:id', posts.get);
 
   // CONTACT
   app.post('/contact', contact.submit);
