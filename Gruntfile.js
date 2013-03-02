@@ -15,7 +15,10 @@ module.exports = function(grunt) {
     },
     exec: {
       commit_build: {
-        cmd: "git add public/js/main-built.js; git ci -m 'commit r.js build file;'"
+        cmd: "git add public/js/main-built.js; git commit -m 'commit r.js build file'; git push"
+      },
+      heroku_deploy: {
+        cmd: "git checkout deploy; git merge master; git commit -m 'Merge master>deploy'; git push; git checkout master"
       }
     }
   });
@@ -23,9 +26,8 @@ module.exports = function(grunt) {
   // Load the plugin
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-heroku-deploy');
 
   // Task(s).
-  grunt.registerTask('deploy', ['requirejs', 'exec:commit_build', 'heroku-deploy']);
+  grunt.registerTask('deploy', ['requirejs', 'exec:commit_build', 'exec:heroku_deploy']);
 
 };
