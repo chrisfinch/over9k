@@ -15,10 +15,12 @@ module.exports = function(grunt) {
     },
     exec: {
       commit_build: {
-        cmd: "git add public/js/main-built.js; git commit -m 'commit r.js build file'; git push"
+        cmd: "git add public/js/main-built.js; git commit -m 'commit r.js build file'; git push",
+        stdout: "COMMITTED MAIN-BUILT.JS FROM R.JS BUILD"
       },
       heroku_deploy: {
-        cmd: "git checkout deploy; git merge master; git commit -m 'Merge master>deploy'; git push; git checkout master"
+        cmd: "git checkout deploy; git merge master; git commit -m 'Merge master>deploy'; git push; git checkout master",
+        stdout: "DEPLOYED TO HEROKU SUCCESSFULLY"
       }
     }
   });
