@@ -18,5 +18,11 @@
     "emailjs": "*",
     "pwd": "*",
     "knox": "*"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-requirejs": "~0.4.0",
+    "grunt-exec": "~0.4.0",
+    "grunt-heroku-deploy": "~0.1.1"
   }
 }

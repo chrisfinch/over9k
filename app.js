@@ -143,6 +143,11 @@ var s3Middleware = function (req, res, next) {
 
   app.get('/', routes.index);
 
+  if (process.env.NODE_ENV === "production")
+  app.get('/js/main.js', function (req, res) {
+    res.sendfile('./public/js/main-built.js');
+  });
+
   // POSTS
   app.get('/posts/list', posts.list);
   app.get('/posts/:id', posts.get);
