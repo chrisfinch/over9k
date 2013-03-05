@@ -7,7 +7,7 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
 
 	var title = {
 		$cont: $('#content'),
-		$el: $('#home h1'),
+		$el: $('#sect_home h1'),
 
 		/**
 		 * Using a while loop; clone the title and increase the clones

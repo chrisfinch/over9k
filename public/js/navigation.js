@@ -3,11 +3,11 @@
  * animated scrolling and the bootstrap scrollspy for nav item
  * hightlighting.
  */
-define(['jquery', "use!modernizr"], function($, Modernizr) {
+define(["jquery", "use!modernizr", "hash"], function($, Modernizr, hash) {
 
   var navigation = {
 
-    $navs: $('nav li'),
+    $navs: $('#navigation nav li'),
 
     /**
      * Set up a click event on the navigation that scrolls the
@@ -16,10 +16,22 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
      */
     init: function () {
       var that = this;
+
+      // Initialise History API through Hash object..
+      hash.onHistoryChange = function (page) {
+        navigation.scrollTo($(page), $("#navigation nav ul li a").filter(function (i, e) {
+          return $(e).attr("href") === page;
+        }));
+      };
+      hash.init();
+
+      // Bind navigation items
       this.$navs.find("a").on('click', function (event) {
         event.preventDefault();
-        var $sect = $($(this).attr('href'));
-        that.scrollTo($sect, $(this));
+        var href = $(this).attr('href');
+        var $sect = $(href);
+        hash.update(href); // Update history
+        that.scrollTo($sect, $(this)); // Scroll DOM
         // if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "tablet") { // Tablet
         //     t = t-76;
         // } else if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "phone") { // Phone

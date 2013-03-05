@@ -56,14 +56,14 @@ body {
 			text-transform: capitalize;
 		}
 
-		#home h1 {
+		#sect_home h1 {
 			color: #3ea9f5;
 			.curly {
 				color: #000;
 			}
 		}
 
-		h3, #posts nav a {
+		h3, #sect_posts nav a {
 			color: #3ea9f5;
 		}
 
@@ -96,7 +96,7 @@ body {
 			-webkit-filter: brightness(100%) contrast(1000%) blur(0px) drop-shadow(0 0 12px #000000)
 		}
 
-		#about {
+		#sect_about {
 			ul li.how {
 				li {
 					a {
@@ -172,7 +172,7 @@ body {
 			font: 100 16px/28px "Cabin", "gentium book basic";
 		}
 
-		span, label, #blurb p, #posts nav span, #posts nav a {
+		span, label, #blurb p, #sect_posts nav span, #sect_posts nav a {
 			font: 100 16px/18px "Cabin", "gentium book basic";
 		}
 
@@ -216,7 +216,7 @@ body {
 			-webkit-filter: grayscale(100%) drop-shadow(0 0 0 #000);
 		}
 
-		#home h1 {
+		#sect_home h1 {
 			color: hsl( 250, 90%, 60% );
 			text-shadow: 2px 2px 1px #d01e53, 0 0 24px hsl( 250, 90%, 60% );
 			.curly {
@@ -229,7 +229,7 @@ body {
 			border-color: #d01e53;
 		}
 
-		#about {
+		#sect_about {
 			ul li.how {
 				li {
 					a {
@@ -352,13 +352,6 @@ body {
 
 					&.active {
 						border-left: 25px solid #000;
-						a {
-							//font-size: 24px;
-
-							// &:after {
-							// 	opacity: 1;
-							// }
-						}
 					}
 					a {
 						padding: 12px 0 12px 12px;
@@ -368,14 +361,11 @@ body {
 						font-weight: bold;
 						.trans;
 						text-transform: capitalize;
-						// &:after {
-						// 	content: " >";
-						// 	opacity: 0;
-						// 	.trans;
-						// }
+						outline: none;
 						&:hover {
 							text-decoration: none;
 							background: none;
+							outline: none;
 						}
 						&.disabled {
 							color: #333;
@@ -543,7 +533,7 @@ article {
 		}
 	}
 
-	#home {
+	#sect_home {
 		margin: 0 0 1px 0;
 		h1 {
 			margin: 0;
@@ -552,7 +542,7 @@ article {
 		}
 	}
 
-	#posts {
+	#sect_posts {
 
 		nav {
 			float: left;
@@ -607,7 +597,7 @@ article {
 		}
 	}
 
-	#about {
+	#sect_about {
 		ul {
 			margin: 0;
 			li {
@@ -656,7 +646,7 @@ article {
 		}
 	}
 
-	#contact {
+	#sect_contact {
 		z-index: 99;
 		position: relative;
 		.text {
@@ -673,7 +663,7 @@ article {
 }
 
 // 3D Projects Carousel =============================
-#projects {
+#sect_projects {
 	overflow-y: hidden;
 	position: relative;
 	z-index: 9;
@@ -918,13 +908,13 @@ and (max-width : 320px) {
 			width: auto;
 			overflow: hidden;
 
-			.main, &#about ul li .main .type {
+			.main, &#sect_about ul li .main .type {
 				float: none;
 				width: auto;
 				display: block;
 			}
 
-			&#projects #prj_center {
+			&#sect_projects #prj_center {
 				margin-top: -315px; // 275+40 - this accounts for the 80px padding at the botton of sections in portrait tablets
 			}
 		}
@@ -1128,7 +1118,7 @@ and (orientation : portrait) {
 			padding-bottom: 80px;
 			width: auto;
 			overflow: hidden;
-			&#projects #prj_center {
+			&#sect_projects #prj_center {
 				margin-top: -315px; // 275+40 - this accounts for the 80px padding at the botton of sections in portrait tablets
 			}
 		}

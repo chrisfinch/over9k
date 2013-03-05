@@ -13,6 +13,24 @@ module.exports = function(grunt) {
         }
       }
     },
+    less: {
+      development: {
+        options: {
+          paths: ["assets/css"]
+        },
+        files: {
+          "path/to/result.css": "path/to/source.less"
+        }
+      },
+      production: {
+        options: {
+          yuicompress: true
+        },
+        files: {
+          "pulic/css/style-min.css": "pulic/css/style.less"
+        }
+      }
+    },
     exec: {
       commit_build: {
         cmd: "git add public/js/main-built.js; git commit -m 'commit r.js build file'; git push"
@@ -26,8 +44,11 @@ module.exports = function(grunt) {
   // Load the plugin
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-contrib-less');
+
+  grunt.registerTask('less', ['less:production']);
 
   // Task(s).
-  grunt.registerTask('deploy', ['requirejs', 'exec:commit_build', 'exec:heroku_deploy']);
+  grunt.registerTask('deploy', ['requirejs', 'less:production', 'exec:commit_build', 'exec:heroku_deploy']);
 
 };

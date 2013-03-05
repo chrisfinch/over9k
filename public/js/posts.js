@@ -6,7 +6,7 @@
  */
 define(["jquery"], function ($) {
 
-  var $el = $("section#posts"),
+  var $el = $("section#sect_posts"),
       _priv = (function () {
 
     var $next,
@@ -123,11 +123,10 @@ define(["jquery"], function ($) {
         }));
         $new_post.css("left", $curr_post.position().left);
         $curr_post.css("left", $curr_post.position().left + $curr_post.width())
-          .on("webkitTransitionEnd mozTransitionEnd msTransitionEnd transitionEnd", function (event) {
+          .on("webkitTransitionEnd oTransitionEnd otransitionend transitionend", function (event) {
             $curr_post.remove();
             $curr_post = $new_post;
             callback();
-            //$el.height($curr_post.height()+48);
             $("#content").add($el).height($curr_post.height()+72);
           });
         counter += 1;
@@ -142,7 +141,7 @@ define(["jquery"], function ($) {
         }));
         $new_post.css("left", $curr_post.position().left);
         $curr_post.css("left", $curr_post.position().left - $curr_post.width())
-          .on("webkitTransitionEnd mozTransitionEnd msTransitionEnd transitionEnd", function (event) {
+          .on("webkitTransitionEnd oTransitionEnd otransitionend transitionend", function (event) {
             $curr_post.remove();
             $curr_post = $new_post;
             callback();
