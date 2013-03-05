@@ -33,13 +33,13 @@ module.exports = function(grunt) {
     },
     exec: {
       co_deploy: {
-        cmd: "git checkout deploy; git merge master;"
+        cmd: "git stash; git checkout deploy; git merge master;"
       },
       commit_build: {
         cmd: "git add public/js/main-built.js; git commit -m 'Merge master>deploy & build js';"
       },
       heroku_deploy: {
-        cmd: "git push; git checkout master"
+        cmd: "git push; git checkout master; git stash pop"
       }
     }
   });
