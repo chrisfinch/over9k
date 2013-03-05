@@ -32,11 +32,14 @@ module.exports = function(grunt) {
       }
     },
     exec: {
+      co_deploy: {
+        cmd: "git checkout deploy; git merge master;"
+      },
       commit_build: {
-        cmd: "git add public/js/main-built.js; git commit -m 'commit r.js build file'; git push"
+        cmd: "git add public/js/main-built.js; git commit -m 'Merge master>deploy & build js';"
       },
       heroku_deploy: {
-        cmd: "git checkout deploy; git merge master; git commit -m 'Merge master>deploy'; git push; git checkout master"
+        cmd: "git push; git checkout master"
       }
     }
   });
@@ -49,6 +52,6 @@ module.exports = function(grunt) {
   grunt.registerTask('less', ['less:production']);
 
   // Task(s).
-  grunt.registerTask('deploy', ['requirejs', 'less:production', 'exec:commit_build', 'exec:heroku_deploy']);
+  grunt.registerTask('deploy', ['exec:co_deploy', 'requirejs', 'exec:commit_build', 'exec:heroku_deploy']);
 
 };
