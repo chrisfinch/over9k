@@ -33,8 +33,9 @@ require(["jquery",
 	"sections",
 	"navigation",
 	"posts",
+	"hash",
 	"use!modernizr",
-	"bootstrap"], function($, logo, title, carousel, contact, sections, navigation, posts, Modernizr) {
+	"bootstrap"], function($, logo, title, carousel, contact, sections, navigation, posts, hash, Modernizr) {
 
 	$(function () { // DOM Load
 
@@ -68,12 +69,11 @@ require(["jquery",
       $('#content').addClass('show');
     });
 
+		// Kick some modules off
+		posts.init(); // Posts need to be ready before navigation for history
 		navigation.init();
-
-		posts.init();
-
+		hash.init();
 		carousel.init();
-
 		contact.init();
 
 		// Business or Pleasure?

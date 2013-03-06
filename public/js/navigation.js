@@ -18,19 +18,20 @@ define(["jquery", "use!modernizr", "hash"], function($, Modernizr, hash) {
       var that = this;
 
       // Initialise History API through Hash object..
-      hash.onHistoryChange = function (page) {
-        navigation.scrollTo($(page), $("#navigation nav ul li a").filter(function (i, e) {
+      hash.onHistoryChange.push(function (page) {
+        if (page.split("posts/").length > 1) page = "#sect_posts";
+        var $link = $("#navigation nav ul li a").filter(function (i, e) {
           return $(e).attr("href") === page;
-        }));
-      };
-      hash.init();
+        });
+        if ($link.length > 0) navigation.scrollTo($(page), $link);
+      });
 
       // Bind navigation items
       this.$navs.find("a").on('click', function (event) {
         event.preventDefault();
         var href = $(this).attr('href');
         var $sect = $(href);
-        hash.update(href); // Update history
+        hash.update(href.replace("#", "")); // Update history
         that.scrollTo($sect, $(this)); // Scroll DOM
         // if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "tablet") { // Tablet
         //     t = t-76;
@@ -51,6 +52,7 @@ define(["jquery", "use!modernizr", "hash"], function($, Modernizr, hash) {
       $link.parent().addClass("active");
       this.$activeSection = $sect;
       this.$activeLink = $link;
+      this.$activeSection.trigger("inView");
     }
   };
 

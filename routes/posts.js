@@ -7,7 +7,7 @@ exports.list = function (req, res) {
 	// Returns an array of post id's
 	models.post.find({}).sort({'date':-1}).execFind( function(err, data) {
 		res.send(data.map(function (d) {
-			return d._id;
+			return {id: d._id, title: d.title.replace(" ", "_")};
 		}));
 	});
 };

@@ -22,6 +22,10 @@ define(["jquery"], function ($) {
 
     return {
 
+      initialized: false,
+
+      onHistoryChange: [],
+
       init: function () {
         var that = this;
         /**
@@ -29,9 +33,17 @@ define(["jquery"], function ($) {
          * state for the home page.
          */
         if (window.location.hash.length) {
-          var h = window.location.hash.replace("#", "");
-          that.update(ref[h]);
-          that.navigate(h);
+          var h, r, a;
+          h = r = window.location.hash.replace("#", "");
+          if (h.split("/").length > 1) {
+            a = h.split("/")[0]; // Make sure we only get the page route
+            r = "#"+r;
+            that.navigate(a);
+            that.navigate(h);
+          } else {
+            r = ref[h];
+            that.navigate(h);
+          }
         } else {
           that.update("#sect_home");
         }
@@ -40,10 +52,15 @@ define(["jquery"], function ($) {
             that.navigate(window.history.state.page);
           }
         };
+        this.initialized = true;
       },
 
       update: function (hash) {
-        window.history.pushState({"page": ref[hash]}, ref[hash], "#"+ref[hash]);
+        if (ref[hash]) {
+          window.history.pushState({"page": ref[hash]}, ref[hash], "#"+ref[hash]);
+        } else {
+          window.history.pushState({"page": hash}, hash, "#"+hash);
+        }
       },
 
       navigate: function (page) {
@@ -52,8 +69,11 @@ define(["jquery"], function ($) {
          * neccasry to use this style of assigned callback functions
          * to have two way communication across modules.
          */
-        if (typeof this.onHistoryChange === "function") {
-          this.onHistoryChange(ref[page]);
+        if (this.onHistoryChange.length > 0) {
+          var h = typeof ref[page] === "undefined" ? page : ref[page];
+          for (var i = 0; i < this.onHistoryChange.length; i++) {
+            this.onHistoryChange[i](h);
+          }
         }
       }
     };

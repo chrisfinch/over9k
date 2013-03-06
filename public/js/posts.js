@@ -4,7 +4,7 @@
  * and the order is maintained when the node post array is sent via
  * GET request from the backend to the client side.
  */
-define(["jquery"], function ($) {
+define(["jquery", "hash"], function ($, hash) {
 
   var $el = $("section#sect_posts"),
       _priv = (function () {
@@ -24,6 +24,7 @@ define(["jquery"], function ($) {
     return {
 
       setup: function () {
+        var that = this;
         $next = $el.find("nav #next");
         $prev = $el.find("nav #prev");
         $frame = $el.find("#postFrame");
@@ -34,11 +35,7 @@ define(["jquery"], function ($) {
 
         $el.height($curr_post.height()+72);
 
-        $.getJSON("/posts/list", function (data) {
-          total = data.length;
-          list = data;
-          _priv.bind();
-        });
+        if (!list) that.getList();
 
         width = $(window).width() - $frame.offset().left;
 
@@ -49,6 +46,29 @@ define(["jquery"], function ($) {
         $curr_post.css({
           left: $curr_post.position().left,
           width: width
+        });
+
+        hash.onHistoryChange.push(function (title) {
+          if (typeof title !== "undefined" && title.split("posts/").length > 1) {
+            if (!list) {
+              that.getList(function () {that.displayByTitle(title.replace("posts/", ""));});
+            } else {
+              that.displayByTitle(title.replace("posts/", ""));
+            }
+          }
+        });
+        $el.on("inView", function () {
+          // SHOULDNT DO THIS ON FIRST LOAD OF PAGE
+          hash.update("posts/"+$curr_post.find("h3.title").text());
+        });
+      },
+
+      getList: function (callback) {
+        $.getJSON("/posts/list", function (data) {
+          total = data.length;
+          list = data;
+          _priv.bind();
+          if (callback) callback();
         });
       },
 
@@ -77,12 +97,15 @@ define(["jquery"], function ($) {
        */
       next: function () {
         var that = this,
-            old_id = list.shift(),
-            new_id = list[0];
+            old_post = list.shift(),
+            old_id = old_post["id"],
+            new_post = list[0],
+            new_id = new_post["id"];
 
         var callback = function () {
-          list.push(old_id);
+          list.push(old_post);
           active = false;
+          hash.update("posts/"+new_post["title"]);
         };
 
         /**
@@ -101,12 +124,15 @@ define(["jquery"], function ($) {
 
       prev: function () {
         var that = this,
-            old_id = list[0],
-            new_id = list.pop();
+            old_post = list[0],
+            old_id = old_post["id"],
+            new_post = list.pop(),
+            new_id = new_post["id"];
 
         var callback = function () {
-          list.unshift(new_id);
+          list.unshift(new_post);
           active = false;
+          hash.update("posts/"+new_post["title"]);
         };
 
         $.get("/posts/"+new_id, function (data) {
@@ -148,6 +174,25 @@ define(["jquery"], function ($) {
           });
         counter -= 1;
         this.manageCounter();
+      },
+
+      displayByTitle: function (title) {
+        var that = this;
+        // non-standard use of jQuery to filter this array...
+        var post_id_obj = $(list).filter(function (i, e) {
+          return e.title === title;
+        });
+        var callback = function () {
+          while (list[0]["id"] !== post_id_obj[0]["id"]) {
+            var a = list.shift();
+            list.push(a);
+          }
+          active = false;
+        };
+
+        $.get("/posts/"+post_id_obj[0]["id"], function (data) {
+          that.displayPrevPost(data, callback);
+        });
       },
 
       manageCounter: function () {
