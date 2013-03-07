@@ -22,8 +22,6 @@ define(["jquery"], function ($) {
 
     return {
 
-      initialized: false,
-
       onHistoryChange: [],
 
       init: function () {
@@ -52,7 +50,6 @@ define(["jquery"], function ($) {
             that.navigate(window.history.state.page);
           }
         };
-        this.initialized = true;
       },
 
       update: function (hash) {
@@ -61,6 +58,10 @@ define(["jquery"], function ($) {
         } else {
           window.history.pushState({"page": hash}, hash, "#"+hash);
         }
+      },
+
+      replace: function (hash) {
+        window.history.replaceState({"page": hash}, hash, "#"+hash);
       },
 
       navigate: function (page) {

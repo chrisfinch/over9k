@@ -58,8 +58,7 @@ define(["jquery", "hash"], function ($, hash) {
           }
         });
         $el.on("inView", function () {
-          // SHOULDNT DO THIS ON FIRST LOAD OF PAGE
-          hash.update("posts/"+$curr_post.find("h3.title").text());
+          hash.replace("posts/"+$curr_post.find("h3.title").text());
         });
       },
 
@@ -176,7 +175,7 @@ define(["jquery", "hash"], function ($, hash) {
         this.manageCounter();
       },
 
-      displayByTitle: function (title) {
+      displayByTitle: function (title) { // Only ever called by hash history
         var that = this;
         // non-standard use of jQuery to filter this array...
         var post_id_obj = $(list).filter(function (i, e) {
@@ -189,7 +188,6 @@ define(["jquery", "hash"], function ($, hash) {
           }
           active = false;
         };
-
         $.get("/posts/"+post_id_obj[0]["id"], function (data) {
           that.displayPrevPost(data, callback);
         });

@@ -31,7 +31,7 @@ define(["jquery", "use!modernizr", "hash"], function($, Modernizr, hash) {
         event.preventDefault();
         var href = $(this).attr('href');
         var $sect = $(href);
-        hash.update(href.replace("#", "")); // Update history
+        hash.update(href); // Update history
         that.scrollTo($sect, $(this)); // Scroll DOM
         // if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "tablet") { // Tablet
         //     t = t-76;
