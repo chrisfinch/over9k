@@ -40,51 +40,53 @@ require(["jquery",
 
 	$(function () { // DOM Load
 
-		// Quick, error prone hack to find tablet orientation..
-		Modernizr.addTest("orientation", function () {
-			var w = $(window).width();
-			if (Modernizr.touch && w < 768) {
-				return "portrait";
-			} else if (Modernizr.touch) {
-				return "landscape";
-			} else {
-				return false;
-			}
-		});
-
-		// Quick, error prone hack to find portrait display device
-		Modernizr.addTest("portrait_device", function () {
-			var w = $(window).width();
-			if (Modernizr.orientation == "portrait" && w <= 320) {
-				return "phone";
-			} else if (Modernizr.orientation == "portrait" && w <= 1024 && w >= 768) {
-				return "tablet";
-			} else {
-				return false;
-			}
-		});
-
-		sections.init(function () {
-      logo.init();
-      title.init();
-      $('#content').addClass('show');
-    });
-
-		// Kick some modules off
 		detect.init();
-		if (detect.browser !== "ie") {
+
+		if (detect.browser !== "ie") { // Not supporting IE - too much work
+
+			// Quick, error prone hack to find tablet orientation..
+			Modernizr.addTest("orientation", function () {
+				var w = $(window).width();
+				if (Modernizr.touch && w < 768) {
+					return "portrait";
+				} else if (Modernizr.touch) {
+					return "landscape";
+				} else {
+					return false;
+				}
+			});
+
+			// Quick, error prone hack to find portrait display device
+			Modernizr.addTest("portrait_device", function () {
+				var w = $(window).width();
+				if (Modernizr.orientation == "portrait" && w <= 320) {
+					return "phone";
+				} else if (Modernizr.orientation == "portrait" && w <= 1024 && w >= 768) {
+					return "tablet";
+				} else {
+					return false;
+				}
+			});
+
+			sections.init(function () {
+				logo.init();
+				title.init();
+				$('#content').addClass('show');
+			});
+
+			// Kick some modules off
 			posts.init(); // Posts need to be ready before navigation for history
 			navigation.init();
 			hash.init();
 			carousel.init();
 			contact.init();
-		}
 
-		// Business or Pleasure?
-		$('#switch .switch-input').on('change', function (event) {
-			$('body').removeClass('business pleasure').addClass($(this).val());
-			$(window).trigger('resize');
-		});
+			// Business or Pleasure?
+			$('#switch .switch-input').on('change', function (event) {
+				$('body').removeClass('business pleasure').addClass($(this).val());
+				$(window).trigger('resize');
+			});
+		}
 
 		// Treat for curious folks
 		if (console && console.log) {

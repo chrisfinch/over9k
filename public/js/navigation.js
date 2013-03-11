@@ -27,7 +27,7 @@ define(["jquery", "use!modernizr", "hash"], function($, Modernizr, hash) {
       });
 
       // Bind navigation items
-      this.$navs.find("a").on('click', function (event) {
+      this.$navs.find("a").not(".exp").on('click', function (event) {
         event.preventDefault();
         var href = $(this).attr('href');
         var $sect = $(href);

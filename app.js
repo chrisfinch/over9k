@@ -8,6 +8,7 @@ var express = require('express'),
     routes = require('./routes'),
     contact = require('./routes/contact'),
     posts = require('./routes/posts'),
+    experiments = require('./routes/experiments'),
     admin = require('./routes/admin'),
     http = require('http'),
     path = require('path'),
@@ -154,6 +155,10 @@ var s3Middleware = function (req, res, next) {
 
   // CONTACT
   app.post('/contact', contact.submit);
+
+  // EXPERIMENTS
+  app.get('/experiments', experiments.index);
+  //app.get('/experiments/:title', experiments.get);
 
   // LOGIN ======================
 
