@@ -24,6 +24,16 @@ body {
 	font-size: 13px;
 	line-height: 1.2;
 
+	#ie-notice { display: none; }
+	&.ie {
+		#content, #navigation {
+			display: none !important;
+		}
+		#ie-notice {
+			display: block;
+		}
+	}
+
 	p, .post ul li, .post span {
 		font: 400 16px/28px "gentium book basic";
 	}

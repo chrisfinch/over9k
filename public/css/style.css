@@ -19,6 +19,16 @@ body {
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
 }
+body #ie-notice {
+  display: none;
+}
+body.ie #content,
+body.ie #navigation {
+  display: none !important;
+}
+body.ie #ie-notice {
+  display: block;
+}
 body p,
 body .post ul li,
 body .post span {

@@ -34,8 +34,9 @@ require(["jquery",
 	"navigation",
 	"posts",
 	"hash",
+	"detect",
 	"use!modernizr",
-	"bootstrap"], function($, logo, title, carousel, contact, sections, navigation, posts, hash, Modernizr) {
+	"bootstrap"], function($, logo, title, carousel, contact, sections, navigation, posts, hash, detect, Modernizr) {
 
 	$(function () { // DOM Load
 
@@ -70,11 +71,14 @@ require(["jquery",
     });
 
 		// Kick some modules off
-		posts.init(); // Posts need to be ready before navigation for history
-		navigation.init();
-		hash.init();
-		carousel.init();
-		contact.init();
+		detect.init();
+		if (detect.browser !== "ie") {
+			posts.init(); // Posts need to be ready before navigation for history
+			navigation.init();
+			hash.init();
+			carousel.init();
+			contact.init();
+		}
 
 		// Business or Pleasure?
 		$('#switch .switch-input').on('change', function (event) {
