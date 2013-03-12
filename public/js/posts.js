@@ -146,6 +146,7 @@ define(["jquery", "hash"], function ($, hash) {
           left: $curr_post.position().left - $curr_post.width(),
           width: width
         }));
+        this.afterDisplay();
         $new_post.css("left", $curr_post.position().left);
         $curr_post.css("left", $curr_post.position().left + $curr_post.width())
           .on("webkitTransitionEnd oTransitionEnd otransitionend transitionend", function (event) {
@@ -164,6 +165,7 @@ define(["jquery", "hash"], function ($, hash) {
           left: $curr_post.position().left + $curr_post.width(),
           width: width
         }));
+        this.afterDisplay();
         $new_post.css("left", $curr_post.position().left);
         $curr_post.css("left", $curr_post.position().left - $curr_post.width())
           .on("webkitTransitionEnd oTransitionEnd otransitionend transitionend", function (event) {
@@ -173,6 +175,7 @@ define(["jquery", "hash"], function ($, hash) {
           });
         counter -= 1;
         this.manageCounter();
+
       },
 
       displayByTitle: function (title) { // Only ever called by hash history
@@ -190,6 +193,13 @@ define(["jquery", "hash"], function ($, hash) {
         };
         $.get("/posts/"+post_id_obj[0]["id"], function (data) {
           that.displayPrevPost(data, callback);
+        });
+      },
+
+      afterDisplay: function () {
+        $el.find("a.twitter-share-button").each(function () {
+          // Render twitter buttons on posts after AJAX load
+          twttr.widgets.load();
         });
       },
 
