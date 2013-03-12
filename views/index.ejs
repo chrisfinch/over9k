@@ -104,23 +104,7 @@
 				</nav>
 				<div id="postFrame">
 					<% var p = posts[0]; %>
-					<div class="post clearfix" data-id="<%= p._id %>">
-						<div class="date side">
-							<h4><%=p.niceDate() %></h4>
-							</div>
-						<div class="content main">
-							<header>
-								<h3 class="title"><%=p.title %></h3>
-								<h4>by <%=p.author %></h4>
-							</header>
-							<% if (p.image) { %>
-								<div class="image"><img src="<%=p.image %>" /></div>
-							<% } %>
-							<article>
-								<%-p.niceBody() %>
-							</article>
-						</div>
-					</div>
+					<% include post.ejs %>
 				</div>
 			</section>
 
