@@ -16,7 +16,7 @@
   <script src="/js/vendor/jquery-1.8.2.min.js"></script>
   <script src="d3.v3.min.js"></script>
   <script src="raphael-min.js"></script>
-  <script src="simplify.js"></script>
+  <script src="simplify-new.js"></script>
 
   <script src="script-new.js"></script>
 
@@ -26,15 +26,15 @@
   <![endif]-->
 
   <style>
-    #map {
-      width: 900px;
-      height: 900px;
-      border: 1px solid #000;
+    .container {
+      width: 1000px;
     }
 
-    #map .background {
-      fill: none;
-      pointer-events: all;
+    #map {
+      width: 999px;
+      height: 999px;
+      border: 1px solid #000;
+      background-color: rgba(62, 169, 245, 0.02);
     }
 
     #map text {
@@ -45,12 +45,23 @@
 
     #map path {
       fill: #eee;
-      stroke: #000;
+      stroke: #aaa;
       pointer-events: none;
     }
 
     .title * {
       margin-top: 12px;
+    }
+
+    #area {
+      width: 1000px;
+    }
+
+    #info {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      width: 300px;
     }
   </style>
 
@@ -61,11 +72,27 @@
   <div class="container">
     <div class="title">
       <a href="/experiments" class="btn small">&laquo; Back to Experiements</a>
-      <h1>D3.js Map of UK</h1>
+      <h1>D3.js Map of UK with line simplification</h1>
     </div>
 
+    <div class="controls">
+      <p>This experiment loads an 18.7mb geoJSON file of the UK, please be patient whilst it loads and is processed. See left for more info about this experiment.</p>
+
+      <div class="control-group">
+        <label for="area">Line simplification minimum area:</label>
+        <input type="range" id="area" name="area" min="1" max="1000" value="1" step="1">
+      </div>
+
+    </div>
 
     <div id="map"></div>
+
+    <div id="info">
+      <p>This page was a built as an effort to understand and implement d3.js' .d3.geo funtionality and line simplification for SVG based plotting.</p>
+      <p>I initialy found Mike Bostocks example using the Visvalingam Algorithm for line simplicfication at <a href="http://bost.ocks.org/mike/simplify/">http://bost.ocks.org/mike/simplify/</a> which led me, after some research, to Jason Davies extention of the implementation at <a href="http://www.jasondavies.com/maps/simplify/">http://www.jasondavies.com/maps/simplify/</a> and finally to the d3.simplify plugin: <a href="https://github.com/d3/d3-plugins">https://github.com/d3/d3-plugins</a></p>
+      <p>The map implementation is built by me but all work on the simplification algorithm itself is not my own.</p>
+      <p>For further work in this area I will investigate simplification with <a href="https://github.com/mbostock/topojson">TopoJSON</a> to try and create a zooming map.</p>
+    </div>
 
   </div>
 
