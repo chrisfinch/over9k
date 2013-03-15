@@ -30,6 +30,8 @@ $(function() {
 
     var geography = simplify.project(uk);
 
+    d3.select("#map h1").remove();
+
     redraw();
 
     area.on("change", function () {
