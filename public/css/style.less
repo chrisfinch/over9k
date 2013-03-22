@@ -897,8 +897,13 @@ and (min-width : 321px) {
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen
-and (max-width : 320px) {
+// @media only screen
+// and (max-width : 320px) {
+
+	#switch, #blurb {
+		display: none;
+	}
+
 	/* Styles */
 	h1, h2, h3, h4, h5, h6, nav a {
 		font-family: 'Helvetica Neue', Helvetica;
@@ -914,14 +919,34 @@ and (max-width : 320px) {
 		margin: 0;
 		padding: 0;
 		section {
-			padding-bottom: 80px;
+			//padding: 0 !important;
+			// padding-bottom: 160px !important;
 			width: auto;
 			overflow: hidden;
 
-			.main, &#sect_about ul li .main .type {
-				float: none;
-				width: auto;
-				display: block;
+			.main {
+				position: relative;
+				float: none !important;
+				width: 100% !important;
+				display: block !important;
+			}
+
+			// &#sect_about ul li .main .type,
+			// &#sect_about ul li > div
+
+			&#sect_about > ul > li {
+				margin: 0 0 12px 0 !important;
+				div.side,
+				div.main {
+					margin: 0 0 12px 0 !important;
+					//padding: 0 24px;
+					display: block !important;
+					float: none !important;
+					width: auto !important;
+					.type , p {
+						width: 55%;
+					}
+				}
 			}
 
 			&#sect_projects #prj_center {
@@ -943,8 +968,8 @@ and (max-width : 320px) {
 		padding: 0 0 0 24px;
 		background-color: #1D1D1D;
 		nav {
-			height: 76px;
-			padding: 0 !important;
+			height: 68px;
+			padding: 0 0 0 24px !important;
 			position: static;
 			ul.nav {
 				padding: 0;
@@ -954,22 +979,20 @@ and (max-width : 320px) {
 					float: left;
 					padding: 0 !important;
 					margin: 0;
-					line-height: 76px;
-					height: 76px;
+					line-height: 68px;
+					height: 68px;
 					margin: 0 6px 0 0;
 					position: relative;
 					border-left: none !important;
-
 					a {
-						line-height: 76px;
-						height: 76px;
-						padding: 0;
-						margin: 0;
+						line-height: 68px;
+						height: 68px;
+						padding: 0 6px !important;
+						margin: 0 0 0 6px !important;
 						position: relative;
 						.trans;
 						text-shadow: 1px 1px #aaa;
 						font-size: 14px !important;
-
 						// &:after {
 						// 	content: ">";
 						// 	text-align: center;
@@ -991,7 +1014,7 @@ and (max-width : 320px) {
 
 					&#logo {
 						position: absolute;
-						left: 14px;
+						left: 0px;
 						top: 0;
 						background-color: transparent;
 						margin: 0;
@@ -999,23 +1022,8 @@ and (max-width : 320px) {
 							top: 0;
 						}
 						h1 img {
-							-webkit-transform: translate3d(-86px,-78px,0) scale(0.3);
-						}
-					}
-
-					&.switch {
-						position: static;
-						height: 76px;
-						line-height: 76px;
-						margin: 0;
-						padding: 0;
-						overflow: hidden;
-						text-align: center;
-						#switch {
-							overflow: hidden;
-							padding: 0;
-							margin: 20px 0;
-							-webkit-transform: scale(0.8); // 36 * 0.8 = 28.8
+							-webkit-transform: translate3d(-112px,-66px,0) scale(0.3);
+							transform: translate3d(-112px,-66px,0) scale(0.3);
 						}
 					}
 				}
@@ -1037,17 +1045,7 @@ and (max-width : 320px) {
 			background-color: #fff;
 		}
 	}
-
-	.pleasure {
-		#navigation {
-			border-color: #d01e53;
-		}
-		section {
-			.trans;
-			background-color: #1D1D1D;
-		}
-	}
-}
+// }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen
@@ -1109,6 +1107,10 @@ and (orientation : landscape) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : portrait) {
+
+	#switch, #blurb {
+		display: none;
+	}
 
 	/* Styles */
 	h1, h2, h3, h4, h5, h6, nav a {

@@ -52,7 +52,6 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
 		 * the window resize event
 		 */
 		init: function () {
-			//alert(Modernizr.orientation);
 			var _this = this;
 			_this.margin = Modernizr.orientation == "portrait" ? 48 : 278; // 230 for nav + 24px margin of error
 			_this.resize($(window).width()-_this.margin);

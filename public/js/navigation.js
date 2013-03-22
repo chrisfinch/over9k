@@ -33,20 +33,23 @@ define(["jquery", "use!modernizr", "hash"], function($, Modernizr, hash) {
         var $sect = $(href);
         hash.update(href); // Update history
         that.scrollTo($sect, $(this)); // Scroll DOM
-        // if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "tablet") { // Tablet
-        //     t = t-76;
-        // } else if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "phone") { // Phone
-        //     t = t-68;
-        // }
       });
     },
 
     scrollTo: function ($sect, $link) {
-      var t = $sect.position().top;
-      $("html:not(:animated),body:not(:animated)").scrollTop(0);
+      var t = $sect.position().top, a;
+      if (Modernizr.touch) {
+        if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "tablet") { // Tablet
+          a = 76;t = t-a;
+        } else if (Modernizr.orientation == "portrait" && Modernizr.portrait_device == "phone") { // Phone
+          a = 70;t = t-a;
+        }
+      } else {
+        $("html:not(:animated),body:not(:animated)").scrollTop(0);
+      }
       $("#frame").animate({top:t*-1}, 500);
       $("#content").css({
-        height: $sect.css("height")
+        height: parseInt($sect.css('height'), 10)+a
       });
       this.$navs.removeClass("active");
       $link.parent().addClass("active");

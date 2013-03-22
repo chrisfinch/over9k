@@ -4,28 +4,19 @@ define(['jquery', "use!modernizr", "navigation"], function($, Modernizr, navigat
     init: function (done) {
       var _this = this,
           h = $(window).height();
-      //_this.setContentWidth();
+      if (Modernizr.touch) h += 70;
       _this.contentHeight(h);
       _this.sectionHeight(h, done);
-      $(window).on('resize', function () {
-        h = $(window).height();
-        h = h > 700 ? h : 700; // Minimum to avoid things getting too squashed
-        _this.contentHeight(h);
-        _this.sectionHeight(h);
-        navigation.scrollTo(navigation.$activeSection, navigation.$activeLink);
-      });
+      if (!Modernizr.touch) {
+        $(window).on('resize', function () {
+          h = $(window).height();
+          h = h > 700 ? h : 700; // Minimum to avoid things getting too squashed
+          _this.contentHeight(h);
+          _this.sectionHeight(h);
+          navigation.scrollTo(navigation.$activeSection, navigation.$activeLink);
+        });
+      }
     },
-
-    // setContentWidth: function () {
-    //   if (Modernizr.orientation == "landscape") {
-    //     var w = $(window).width();
-    //     var nav_w = $("#navigation").outerWidth(true);
-    //     $("#content").css({
-    //       "width": w-nav_w,
-    //       "marginLeft": nav_w
-    //     });
-    //   }
-    // },
 
     contentHeight: function (h) {
       $("#content").css("height", h);
