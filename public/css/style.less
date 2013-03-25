@@ -897,8 +897,8 @@ and (min-width : 321px) {
 }
 
 /* Smartphones (portrait) ----------- */
-// @media only screen
-// and (max-width : 320px) {
+@media only screen
+and (max-width : 320px) {
 
 	#switch, #blurb {
 		display: none;
@@ -921,7 +921,7 @@ and (min-width : 321px) {
 		section {
 			//padding: 0 !important;
 			// padding-bottom: 160px !important;
-			width: auto;
+			width: 272px;
 			overflow: hidden;
 
 			.main {
@@ -931,8 +931,35 @@ and (min-width : 321px) {
 				display: block !important;
 			}
 
-			// &#sect_about ul li .main .type,
-			// &#sect_about ul li > div
+			&#sect_posts {
+				> nav {
+					display: block;
+					float: none;
+					text-align: center;
+					width: auto;
+					margin: 0;
+				}
+				width: auto !important;
+				.post > div {
+					display: block;
+					float: none;
+					width: 272px;
+					&.date {
+						> * {display: inline-block;}
+						iframe {
+							height: 40px;
+							margin: 0 0 0 6px;
+						}
+					}
+					&.main {
+						width: 272px;
+						> div {
+							display: block;
+							float: none;
+						}
+					}
+				}
+			}
 
 			&#sect_about > ul > li {
 				margin: 0 0 12px 0 !important;
@@ -944,7 +971,7 @@ and (min-width : 321px) {
 					float: none !important;
 					width: auto !important;
 					.type , p {
-						width: 55%;
+						width: 272px;
 					}
 				}
 			}
@@ -1045,7 +1072,7 @@ and (min-width : 321px) {
 			background-color: #fff;
 		}
 	}
-// }
+}
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen

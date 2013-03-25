@@ -26,3 +26,31 @@ exports.get = function (req, res) {
 		}
 	});
 };
+
+// Method for search engine crawlers without js
+// Renders the index page with the correct post in line
+exports.get_google = function (req, res) {
+	var posts;
+	var projects;
+
+	models.post.find({}).sort({'date':-1}).execFind( function(err, data) {
+
+		posts = data;
+
+		var the_post;
+		var p = posts.filter(function (val, index, array) {
+			//console.log("=============", val.title, "---", req.params.title.replace(/_+?/g, " "));
+			if (val.title === req.params.title.replace(/_+?/g, " ")) {
+				the_post = index;
+				return true;
+			}	else {
+				return false;
+			}
+		});
+
+		models.project.find(function (err, data) {
+			projects = data;
+			res.render('index', { posts: posts, the_post: the_post, projects: projects });
+		});
+	});
+};

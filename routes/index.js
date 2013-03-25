@@ -13,7 +13,7 @@ exports.index = function(req, res){
 
 		models.project.find(function (err, data) {
 			projects = data;
-			res.render('index', { posts: posts, projects: projects });
+			res.render('index', { posts: posts, the_post: 0, projects: projects });
 		});
 	});
 

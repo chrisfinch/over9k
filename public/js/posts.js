@@ -33,20 +33,25 @@ define(["jquery", "hash"], function ($, hash) {
 
         counter = 1;
 
-        $el.height($curr_post.height()+72);
-
         if (!list) that.getList();
 
-        width = $(window).width() - $frame.offset().left;
+        function resize () {
+          $el.height($curr_post.height()+72);
 
-        $frame.css({
-          width: $(window).width() - $frame.offset().left
-        });
+          width = $(window).width() - $frame.offset().left;
 
-        $curr_post.css({
-          left: $curr_post.position().left,
-          width: width
-        });
+          $frame.css({
+            width: $(window).width() - $frame.offset().left
+          });
+
+          $curr_post.css({
+            left: $curr_post.position().left,
+            width: width-48
+          });
+        }
+
+        $(window).on("resize", resize);
+        resize();
 
         hash.onHistoryChange.push(function (title) {
           if (typeof title !== "undefined" && title.split("posts/").length > 1) {
@@ -116,7 +121,7 @@ define(["jquery", "hash"], function ($, hash) {
          * be a much larger hit on performance and file size on the
          * client side.
          */
-        $.get("/posts/"+new_id, function (data) {
+        $.get("/posts/post/"+new_id, function (data) {
           that.displayNextPost(data, callback);
         });
       },
@@ -134,7 +139,7 @@ define(["jquery", "hash"], function ($, hash) {
           hash.update("posts/"+new_post["title"]);
         };
 
-        $.get("/posts/"+new_id, function (data) {
+        $.get("/posts/post/"+new_id, function (data) {
           that.displayPrevPost(data, callback);
         });
       },
@@ -191,7 +196,7 @@ define(["jquery", "hash"], function ($, hash) {
           }
           active = false;
         };
-        $.get("/posts/"+post_id_obj[0]["id"], function (data) {
+        $.get("/posts/post/"+post_id_obj[0]["id"], function (data) {
           that.displayPrevPost(data, callback);
         });
       },

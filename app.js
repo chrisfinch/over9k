@@ -151,7 +151,8 @@ var s3Middleware = function (req, res, next) {
 
   // POSTS
   app.get('/posts/list', posts.list);
-  app.get('/posts/:id', posts.get);
+  app.get('/posts/:title', posts.get_google); // Google
+  app.get('/posts/post/:id', posts.get); // Javascript
 
   // CONTACT
   app.post('/contact', contact.submit);

@@ -43,6 +43,7 @@ define(['jquery', "use!modernizr"], function($, Modernizr) {
 		 */
 		position: function () {
 			var wh = $(window).height();
+			wh = Modernizr.orientation == "portrait" ? wh - 70 : wh;
 			var eh = this.$el.height();
 			this.$el.css('top', (wh-eh)/2);
 		},
